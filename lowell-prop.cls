@@ -1,0 +1,318 @@
+% Lowellpropcls - modified CTIO STY file for use at Lowell Observatory.
+
+% First, identifying information about this style file.
+% Note that this is derived from but not identical to the
+% KPNO kpnoprop.sty file
+%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{Lowellprop}[2015/4/28 Lowell Observatory DCT Observing Proposal]
+\LoadClass[11pt]{article}
+
+% Page design/layout macros.  Page sizes are at the end of the file.
+
+\RequirePackage{setspace}
+\setstretch{0.98}      % Tighten up baselines a little.
+
+\def\telescopes#1{\gdef\@tele{#1}} \telescopes{}
+
+\def\prop@head{Lowell Observatory\\\@tele\ Observing Proposal}
+
+\newdimen\prop@idboxwidth
+
+\def\prop@idbox{\prop@idboxwidth\textwidth
+    \advance\prop@idboxwidth by-2.3\fboxsep
+    \fbox{\hbox to\prop@idboxwidth{
+    \ifx\@rcptdate\@empty{\it Date:\/} \today
+    \else{\it Date received:\/} \@rcptdate\fi\hfil
+    }}}
+
+\def\ques@font{\it}
+\def\instruct@font{\small\sl}
+
+\def\received#1{\gdef\@rcptdate{#1}} \received{}
+\def\proposalid#1{\gdef\@propid{#1}} \proposalid{\hspace{1in}}
+
+
+\def\title#1{\null\vspace{-2\headheight}\vspace{-\headsep}
+    \begin{center}\large\bf\prop@head\end{center}\prop@idbox\par
+    \vspace*{.2in}
+    \def\@tempa{#1}\ifx\@empty\@tempa
+    \makebox[\textwidth]{\large{\bf Title:}}\par
+    \else{\large{\bf Title:} \@tempa}\fi}
+
+\def\abstract{\par\vspace{0ex}\vbox to2.35in\bgroup\noindent
+    \\[.2ex]
+    {\bf Abstract of Scientific Justification (Limit 100 words)}
+    
+    \parindent\z@}
+\let\ltx@endabstract=\endabstract
+\def\endabstract{\ltx@endabstract\vfil\egroup\vspace{\fill}}
+
+% Observer identification.  These items are buffered so that they can be
+% specified in any order, subject only to the restriction that the observer
+% name be given first.  The same commands are used to identify the PI as
+% well as the co-investigators; the formatting is controlled separately,
+% and differences arise in the use of LaTeX environments, below.
+%
+% Each member of the observing team is identified with several bits of
+% information.
+%
+%    \name{OBSERVER NAME}
+%    \affil{AFFILIATION}
+%    \address{POSTAL ADDRESS}
+%    \emailaddress{EMAIL ADDRESS}
+%    \phone{TELEPHONE NUMBER}
+%
+
+
+\def\name#1{\gdef\obs@name{#1}}
+\def\affiliation#1{\gdef\obs@affiliation{#1}}
+\def\emailaddress#1{\gdef\obs@email{#1}}
+
+\def\clear@obs{\gdef\obs@name{}\gdef\obs@affiliation{}\gdef\obs@email{}
+}
+
+% Formatting of PI and CO-I data are controlled by the next two macros.
+
+\def\yn@rule{\rule{0.3in}{0.4pt}}
+\newcount\@maxnumcois \@maxnumcois=3
+
+\def\prt@coiblock{\begin{tabbing}
+    \makebox[.25\textwidth]{\null}\=\makebox[.25\textwidth]{\null}\=
+    \makebox[.25\textwidth]{\null}\=\kill
+    \hbox to.25\textwidth{\obs@tag\space%
+        \ifx\@empty\obs@name\hrulefill\space\else\obs@name\hfill\fi}%
+    \hbox to.42\textwidth{Affiliation:\space%
+       \ifx\@empty\obs@affiliation@rule\else\obs@affiliation\fi\hfill}%
+    \hbox to.3\textwidth{Email:\space%
+        \ifx\@empty\obs@email \hrulefill\else\obs@email\hfill\fi}
+%\\[.2ex]
+    \end{tabbing}}
+
+%% Hack to indicate presence of extra Co-I's
+%% Puts names only in right margin in tiny print size
+
+\def\prt@xcoiblock{\marginpar{\tiny\obs@name}}
+
+% Principal investigator and co-investigator environments.
+
+\newcounter{CoI}
+\def\obs@tag{{\bf CoI:}}
+
+\newenvironment{PI}{\clear@obs}{\def\obs@tag{{\bf PI:}}\prt@coiblock}
+\newenvironment{CoI}{\clear@obs\stepcounter{CoI}}{\ifnum\c@CoI>\@maxnumcois
+    \prt@xcoiblock\else\vspace*{-5ex}\prt@coiblock\fi}
+
+% Questions for first page.
+%
+%   \thesis{Y or N}
+%   \longterm{Y or N}
+%   \longtermdetails{BRIEF DETAILS}
+%   \queue{Y or N}
+%   \unusabledates{BRIEF DETAILS}
+
+\def\chk@setblank#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
+    \def\@kptmpa{\yn@rule}\fi\mbox{\@kptmpa}}
+
+\def\chk@setblankline#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
+    \def\@kptmpa{\rule{\textwidth}{0.4pt}}\fi
+    \par\makebox[\textwidth][l]{\@kptmpa}}
+
+\def\thesis@head{{\ques@font Is this proposal directly related to a PhD thesis?}}
+
+%\def\longterm@head{{\ques@font Are you requesting long-term status?
+% If `Y', please give details on the line below.}}
+%  \def\queue@head{{\ques@font Would you like these observations conducted
+%  as `service' observing?}}
+\def\undates@head{{\ques@font List dates you cannot use for
+   non-astronomical reasons, or any other scheduling comments}}
+
+\def\thesis#1{\par$\bullet$\space\thesis@head\quad\chk@setblank{#1}}
+\def\longterm#1{\par$\bullet$\space\longterm@head\quad\chk@setblank{#1}
+    \gdef\@longterm{#1}}
+\def\longtermdetails#1{\def\@tempa{N}\ifx\@longterm\@tempa\relax\else
+    \chk@setblankline{#1}\fi}
+\def\queue#1{\par$\bullet$\space\queue@head\quad\chk@setblank{#1}}
+\def\unusabledates#1{\par$\bullet$\space\undates@head\par\chk@setblankline{#1}}
+
+% Observing run environment.  This is used to describe observing parameters
+% in a very succinct manner, to be presented in an abbreviated form on the
+% first page.  I have chosen to use multiple \begin{obsrun}-\end{obsrun}
+% groupings, as opposed to a repeating set of parameter identifying macros.
+
+\newcounter{obsrun}
+\newenvironment{obsrun}{\stepcounter{obsrun}}%
+    {\ifnum\c@obsrun=3\par\prt@obsruns\par\fi}
+
+% Observing run parameters to be specified by the investigators.
+%
+%   \telescope{IDENT}
+%   \instrument{IDENT(S)}
+%   \numfirsthalfnights{NUMBER}
+%   \numsecondhalfnights{NUMBER}
+%   \lunarphase{NUMBER}
+%   \optimaldates{RANGE}
+%   \acceptabledates{RANGE}
+%   \remoteobserving{YorN}
+
+\def\telescope#1{\global\@namedef{obs\@Alph{\c@obsrun}@telid}{#1}}
+\def\instrument#1{\global\@namedef{obs\@Alph{\c@obsrun}@inst}{#1}}
+\def\numfirsthalfnights#1{\global\@namedef{obs\@Alph{\c@obsrun}@numfirsthalfnights}{#1}}
+\def\numsecondhalfnights#1{\global\@namedef{obs\@Alph{\c@obsrun}@numsecondhalfnights}{#1}}
+\def\lunarphase#1{\global\@namedef{obs\@Alph{\c@obsrun}@lunarphase}{#1}}
+\def\optimaldates#1{\global\@namedef{obs\@Alph{\c@obsrun}@optdates}{#1}}
+\def\acceptabledates#1{\global\@namedef{obs\@Alph{\c@obsrun}@accdates}{#1}}
+\def\remoteobserving#1{\global\@namedef{obs\@Alph{\c@obsrun}@remobs}{#1}}
+
+\def\obsrun@head{Summary of observing runs requested for this project\\{\footnotesize Moon-phase and number of days from new moon: darkest $\le$ 3, dark $\le$ 7, grey $\le$ 10, bright $\le$ 14.}}
+
+\def\prt@obsruns{\begin{center}{\bf\obsrun@head}\\[1ex]
+    \begin{tabular*}{\textwidth}
+        {|c||c|l@{\extracolsep{\fill}}c|}
+    \multicolumn{1}{c}{Run} &
+    \multicolumn{1}{c}{Telescope} &
+    \multicolumn{2}{l}{Instrument, detectors, gratings, filters,
+    camera optics, etc.}  \\
+    \hline
+    1 & \obsA@telid & \obsA@inst & \\
+    \hline
+    2 & \obsB@telid & \obsB@inst & \\
+    \hline
+    3 & \obsC@telid & \obsC@inst & \\
+    \hline
+    \end{tabular*}\\
+    \vspace{2ex}
+    \begin{tabular*}{\textwidth}{|c||c|c|c|l|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c|}
+    \multicolumn{1}{c}{Run} &
+    \multicolumn{1}{c}{\#1$^\mathrm{st} \frac{1}{2}$} &
+    \multicolumn{1}{c}{\#2$^\mathrm{nd} \frac{1}{2}$} &
+    \multicolumn{1}{c}{Moon Phase} &
+    \multicolumn{1}{c}{Optimal Dates} &
+    \multicolumn{2}{c}{Acceptable} &
+    \multicolumn{1}{c}{Remote}\vspace{.5ex}\\
+    \hline
+    1 & \obsA@numfirsthalfnights &\obsA@numsecondhalfnights & \obsA@lunarphase &
+        \obsA@optdates & \obsA@accdates&& \obsA@remobs\\
+    \hline
+    2 & \obsB@numfirsthalfnights& \obsB@numsecondhalfnights & \obsB@lunarphase &
+        \obsB@optdates & \obsB@accdates&& \obsB@remobs\\
+    \hline
+    3 & \obsC@numfirsthalfnights &\obsC@numsecondhalfnights & \obsC@lunarphase &
+        \obsC@optdates & \obsC@accdates&& \obsC@remobs\\
+    \hline
+    \end{tabular*}
+    \end{center}}
+
+% The scientific justification and the proposed observing program are
+% typeset (printed) as they are specified by the author.  Specific
+% observations are summarized in the "obsrun" environment (above).
+%
+%    \justification
+%    \feasibility
+%    \thepast
+
+\newenvironment{references}{\subsubsection*{References}}{\relax}
+\let\reference=\par
+
+\def\propsection{\@startsection{section}{1}{\z@}
+    {7pt plus 4pt minus 2pt}{-1em}{\normalsize\bf}}
+\def\subsection{\@startsection{subsection}{2}{\z@}
+    {-3.25ex plus -1ex minus -.2ex}{1.5ex plus .2ex}{\normalsize\bf}}
+\def\justif@head{{\instruct@font  Limit to one page of text, and up to one additional page of references and figures (which can be integrated in the text). 
+\par}}
+\def\feas@head{{\instruct@font One page.  Justify the amount of time requested
+    as well as the specific instrument(s), configuration, and lunar phase. List objects, coordinates, magnitude/surface brightness, desired S/N, wavelength coverage and resolution.  
+    \par}}
+\def\past@head{{\instruct@font List your DCT allocations during the past {\bf two} years, 
+    together with the current
+    status of the data (cite publications where appropriate).  Mark with
+    an asterisk those allocations of time related to the current proposal.\par}}
+
+\def\justification{\newpage\propsection{\fbox{Scientific Justification}}
+    \justif@head}
+\def\feasibility{\newpage\propsection{\fbox{Technical and Scientific
+    Feasibility}}\feas@head}
+\def\thepast{\vfill\propsection{\fbox{Previous Use of DCT}}
+    \past@head}
+
+\def\relatedwork#1{\fbox{$\star$}\space#1}
+
+
+%\RequirePackage{amstext}
+%\RequirePackage[separate-uncertainty=true,range-units=single,
+%  range-phrase=--,forbid-literal-units=true]{siunitx}
+
+% common astronomical symbols
+\let\sun\odot
+\let\bh\bullet
+\newcommand*\solarmass{\si{\solarmass}}
+\newcommand*\solarluminosity{\si{\solarluminosity}}
+% astrophysical units
+%\DeclareSIUnit\lightspeed{$c$}
+%\DeclareSIUnit\rydberg{Ry}
+%\DeclareSIUnit\erg{erg}
+%\DeclareSIUnit\magnitude{mag}
+%\DeclareSIUnit\jansky{Jy}
+%\DeclareSIUnit\gauss{G}
+%\DeclareSIUnit\h{$h$}
+%\DeclareSIUnit\hseven{$h$_7}
+%\DeclareSIUnit\parsec{pc}
+%\DeclareSIUnit\year{yr}
+%\DeclareSIUnit\solarluminosity{\ensuremath{L_\sun}}
+%\DeclareSIUnit\solarmass{\ensuremath{M_\sun}}
+%\DeclareSIUnit\solarmassinenergy{\ensuremath{M_\sun|c^2}}
+%\DeclareSIUnit\solarradius{\ensuremath{R_\sun}}
+% redeclared units
+%\DeclareSIUnit\arcsecond{as}
+%\DeclareSIUnit\astronomicalunit{AU}
+%\DeclareSIUnit\clight{\ensuremath c}
+% additional unit notations
+\DeclareRobustCommand\SIfrac{\@ifstar\ast@SIfracplain\ast@SIfracparen}
+\newcommand*\ast@SIfracplain[1]{\begingroup\def\@tempa{#1}\ast@@SIfracplain}
+\newcommand*\ast@SIfracparen[1]{\begingroup\def\@tempa{#1}\ast@@SIfracparen}
+\newcommand*\ast@@SIfracplain[2][]{\frac{\@tempa}{\SI{#1}{#2}}\endgroup}
+\newcommand*\ast@@SIfracparen[2][]{\biggl(\ast@@SIfracplain{#1}{#2}\biggr)}
+\newcommand*\SIex[2]{#1\,\si{#2}}
+% spectroscopic notation
+\DeclareRobustCommand\specatom{\@ifstar\ast@atomforbid\ast@atomallow}
+\DeclareRobustCommand\specline{\@ifstar\ast@lineforbid\ast@lineallow}
+\newcommand*\ast@atomforbid[2]{\textnormal{[\ast@atomallow{#1}{#2}]}}
+\newcommand*\ast@atomallow[2]{%
+  \textnormal{#1\hskip.1em\relax\textsc{\romannumeral#2}}}
+\newcommand*\ast@lineforbid[3]{%
+  \textnormal{\ast@atomforbid{#1}{#2}\hskip.2em\relax#3}}
+\newcommand*\ast@lineallow[3]{%
+  \textnormal{\ast@atomallow{#1}{#2}\hskip.1em\relax#3}}
+% term symbol
+\DeclareRobustCommand\termsym{\@ifstar\ast@termodd\ast@termeven}
+\newcommand*\scripts[5]{\ensuremath{
+  ^{#2\vphantom0}_{#3\vphantom0}\hskip-\scriptspace{#1}
+  ^{#4\vphantom0}_{#5\vphantom0}}}
+\newcommand*\ast@termeven[3]{\scripts{\textup{#2}}{#1}{}{}{#3}}
+\newcommand*\ast@termodd[3]{\scripts{\textup{#2}}{#1}{}{\textup o}{#3}}
+
+
+% Initialization.
+
+\textwidth 6.5in
+\textheight 9.0in
+\oddsidemargin \z@
+\evensidemargin \z@
+\marginparwidth 0.7in
+\topmargin \z@
+\headheight .2in
+\headsep .2in
+\parindent \z@
+\parskip 1ex
+
+\voffset=-0.25in
+%\hoffset=-0.25in
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\thispagestyle{empty}
+\rhead{Page \thepage}
+\cfoot{}
+
+\setcounter{secnumdepth}{0}
