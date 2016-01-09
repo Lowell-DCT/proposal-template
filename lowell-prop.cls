@@ -1,4 +1,4 @@
-% Lowellpropcls - modified CTIO STY file for use at Lowell Observatory.
+% lowell-prop.cls - modified CTIO STY file for use at Lowell Observatory.
 
 % First, identifying information about this style file.
 % Note that this is derived from but not identical to the
@@ -6,7 +6,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Lowellprop}[2015/4/28 Lowell Observatory DCT Observing Proposal]
+\ProvidesClass{lowell-prop}[2015/4/28 Lowell Observatory DCT Observing Proposal]
 \LoadClass[11pt]{article}
 
 % Page design/layout macros.  Page sizes are at the end of the file.
@@ -76,7 +76,7 @@
 % Formatting of PI and CO-I data are controlled by the next two macros.
 
 \def\yn@rule{\rule{0.3in}{0.4pt}}
-\newcount\@maxnumcois \@maxnumcois=3
+\newcount\@maxNumAuthors \@maxNumAuthors=4
 
 \def\prt@coiblock{\begin{tabbing}
     \makebox[.25\textwidth]{\null}\=\makebox[.25\textwidth]{\null}\=
@@ -90,19 +90,48 @@
 %\\[.2ex]
     \end{tabbing}}
 
-%% Hack to indicate presence of extra Co-I's
-%% Puts names only in right margin in tiny print size
+\def\fullAuthorList{}
 
-\def\prt@xcoiblock{\marginpar{\tiny\obs@name}}
+\newcommand{\ConcatTwo}[2]{%
+  #1#2
+}
+
+\newcommand{\mycommand}[2]{%
+  \expandafter\gdef\csname #1\endcsname{Here is \expandafter{#2} printed.}%
+}
 
 % Principal investigator and co-investigator environments.
 
-\newcounter{CoI}
+\newcounter{numAuthors}
 \def\obs@tag{{\bf CoI:}}
 
-\newenvironment{PI}{\clear@obs}{\def\obs@tag{{\bf PI:}}\prt@coiblock}
-\newenvironment{CoI}{\clear@obs\stepcounter{CoI}}{\ifnum\c@CoI>\@maxnumcois
-    \prt@xcoiblock\else\vspace*{-5ex}\prt@coiblock\fi}
+
+
+\newenvironment{PI}{\clear@obs\stepcounter{numAuthors}}{\def\obs@tag{{\bf PI:}}\prt@coiblock
+   \edef\foo{\fullAuthorList PI: \obs@name \hfill \obs@affiliation \hfill Email: \obs@email \break}
+   \global\let\fullAuthorList\foo
+    }
+%\newenvironment{CoI}{\clear@obs\stepcounter{CoI}}{\ifnum\c@CoI>\@maxNumAuthors
+%    \prt@xcoiblock\else\vspace*{-5ex}\prt@coiblock\fi}
+\newenvironment{CoI}{\clear@obs\stepcounter{numAuthors}}{
+   \ifnum\c@numAuthors>\@maxNumAuthors
+   \else
+   \vspace*{-5ex}\prt@coiblock
+   \fi
+   \edef\foo{\fullAuthorList CoI: \obs@name \hfill \obs@affiliation \hfill Email: \obs@email \break}
+   \global\let\fullAuthorList\foo
+   }
+    
+\newenvironment{ExtraCoIs}{
+%\addtocounter{numAuthors}{5}
+\ifnum\c@numAuthors>\@maxNumAuthors
+\newpage 
+\hfill {\bf Complete list of investigators} \hfill \break
+\fullAuthorList
+\newpage
+\else
+\fi
+}
 
 % Questions for first page.
 %
@@ -117,7 +146,8 @@
 
 \def\chk@setblankline#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
     \def\@kptmpa{\rule{\textwidth}{0.4pt}}\fi
-    \par\makebox[\textwidth][l]{\@kptmpa}}
+    \parbox[b][1cm][t]{\textwidth}{\@kptmpa}}
+%    \par\makebox[\textwidth][l]{\@kptmpa}}
 
 \def\thesis@head{{\ques@font Is this proposal directly related to a PhD thesis?}}
 
@@ -125,8 +155,8 @@
 % If `Y', please give details on the line below.}}
 %  \def\queue@head{{\ques@font Would you like these observations conducted
 %  as `service' observing?}}
-\def\undates@head{{\ques@font List dates you cannot use for
-   non-astronomical reasons, or any other scheduling comments}}
+\def\undates@head{{\ques@font List dates (local MST) you cannot use for
+   non-astronomical reasons, or other scheduling comments}}
 
 \def\thesis#1{\par$\bullet$\space\thesis@head\quad\chk@setblank{#1}}
 \def\longterm#1{\par$\bullet$\space\longterm@head\quad\chk@setblank{#1}
@@ -169,7 +199,7 @@
 
 \def\prt@obsruns{\begin{center}{\bf\obsrun@head}\\[1ex]
     \begin{tabular*}{\textwidth}
-        {|c||c|l@{\extracolsep{\fill}}c|}
+        {|c|c|l@{\extracolsep{\fill}}c|}
     \multicolumn{1}{c}{Run} &
     \multicolumn{1}{c}{Telescope} &
     \multicolumn{2}{l}{Instrument, detectors, gratings, filters,
@@ -183,7 +213,7 @@
     \hline
     \end{tabular*}\\
     \vspace{2ex}
-    \begin{tabular*}{\textwidth}{|c||c|c|c|l|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c|}
+    \begin{tabular*}{\textwidth}{|c|c|c|c|l|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c|}
     \multicolumn{1}{c}{Run} &
     \multicolumn{1}{c}{\#1$^\mathrm{st} \frac{1}{2}$} &
     \multicolumn{1}{c}{\#2$^\mathrm{nd} \frac{1}{2}$} &
