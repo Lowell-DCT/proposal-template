@@ -149,7 +149,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 %                                                OptiNIRSpec Spectrograph}
 %   \numfirsthalfnights{} For exmaple, \numfirsthalfnights{3}
 %   \numsecondhalfnights{} For exmaple, \numsecondhalfnights{3}
-%   \lunarphase{}	For example, \lunarphase{7}
+%   \moonbrightness{}	For example, \moonbrightness{D}
 %   \optimaldates{}	For example, \optimaldates{Sept--Nov}
 %   \acceptabledates{}	For example, \acceptabledates{Sept -- mid-Dec}
 %   \remoteobserving{}  Either Y or N, if remote observing will be utilized.  
@@ -157,31 +157,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 % Please select telescope and instrument identifiers from the list...
 % Instrument combinations may be specified with "+".
 %
-% \lunarphase should specify the acceptable number of days from the
-% new moon either as:
-
-% 1. a single integer (in which case it will be interpreted
-%    symmetrically about the new moon, e.g. 7 == plus or minus seven days
-%    from new)
-% 2. as two integers (e.g. 7--0, for days before and after the new moon).  
+% \moonbrightness should specify the maximum acceptable mean moon brightness
+% using the following codes:
+%     D = <=25%  (Dark)
+%     G = <=70%  (Gray)
+%     B = >70%   (Bright)
+% Mean moon brightness is calculated as the mean fractional illumination of the
+% moon (zero if below the horizon) outside of nautical twilight
 %
-% FYI, the tabulated sky brightness with lunar phase is:
-%
-%                             Table I
-%          Sky Brightness as a Function of Lunar Phase
-%
-% Days from          Sky Brightness (mag/arcsec2)
-% New Moon         U       B        V        R       I
-%     0          22.0    22.7     21.8     20.9    19.9
-%     3          21.5    22.4     21.7     20.8    19.9
-%     7          19.9    21.6     21.4     20.6    19.7
-%    10          18.5    20.7     20.7     20.3    19.5
-%    14          17.0    19.5     20.0     19.9    19.2
-%
-% (see http://www.noao.edu/noao/noaonews/mar94/art20.html)
-%
-% \optimaldates should contain the range of OPTIMAL dates (should be
-% 2-month window).
+% \optimaldates should contain the range of OPTIMAL dates 
 %
 % \acceptabledates should give the range of ACCEPTABLE dates (i.e., you
 % would not accept time outside those limits).
@@ -194,7 +178,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 \instrument{LMI: UVBRI}
 \numfirsthalfnights{3}
 \numsecondhalfnights{2}
-\lunarphase{VD}
+\moonbrightness{D}
 \optimaldates{Feb -- Mar}
 \acceptabledates{Jan -- Mar, May-Jun}
 \remoteobserving{Y}
@@ -205,7 +189,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 \instrument{}
 \numfirsthalfnights{}
 \numsecondhalfnights{}
-\lunarphase{}
+\moonbrightness{}
 \optimaldates{}
 \acceptabledates{}
 \remoteobserving{}
@@ -216,7 +200,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 \instrument{}
 \numfirsthalfnights{}
 \numsecondhalfnights{}
-\lunarphase{}
+\moonbrightness{}
 \optimaldates{}
 \acceptabledates{}
 \remoteobserving{}
@@ -227,7 +211,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 %\instrument{}
 %\numfirsthalfnights{}
 %\numsecondhalfnights{}
-%\lunarphase{}
+%\moonbrightness{}
 %\optimaldates{}
 %\acceptabledates{}
 %\remoteobserving{}

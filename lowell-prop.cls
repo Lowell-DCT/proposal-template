@@ -195,7 +195,7 @@
 %   \instrument{IDENT(S)}
 %   \numfirsthalfnights{NUMBER}
 %   \numsecondhalfnights{NUMBER}
-%   \lunarphase{NUMBER}
+%   \moonbrightness{CODE}   %  CODES are D, G, B
 %   \optimaldates{RANGE}
 %   \acceptabledates{RANGE}
 %   \remoteobserving{YorN}
@@ -204,12 +204,12 @@
 \def\instrument#1{\global\@namedef{obs\@Alph{\c@obsrun}@inst}{#1}}
 \def\numfirsthalfnights#1{\global\@namedef{obs\@Alph{\c@obsrun}@numfirsthalfnights}{#1}}
 \def\numsecondhalfnights#1{\global\@namedef{obs\@Alph{\c@obsrun}@numsecondhalfnights}{#1}}
-\def\lunarphase#1{\global\@namedef{obs\@Alph{\c@obsrun}@lunarphase}{#1}}
+\def\moonbrightness#1{\global\@namedef{obs\@Alph{\c@obsrun}@moonbrightness}{#1}}
 \def\optimaldates#1{\global\@namedef{obs\@Alph{\c@obsrun}@optdates}{#1}}
 \def\acceptabledates#1{\global\@namedef{obs\@Alph{\c@obsrun}@accdates}{#1}}
 \def\remoteobserving#1{\global\@namedef{obs\@Alph{\c@obsrun}@remobs}{#1}}
 
-\def\obsrun@head{Summary of observing runs requested for this project\\{\footnotesize Use moon-brightness codes VD, D, G, B for mean lunar illuminations of $\le$0.15, $\le$0.25, $\le$0.7, $>$0.7 }}
+\def\obsrun@head{Summary of observing runs requested for this project\\{\footnotesize Use moon-brightness codes D, G, B for mean lunar illuminations of $\le$0.25, $\le$0.7, $>$0.7 }}
 %and number of days from new moon: darkest $\le$ 3, dark $\le$ 7, grey $\le$ 10, bright $\le$ 14.}}
 
 \newcommand{\stacktablehdr}[2]{$\genfrac{}{}{0pt}{}{\text{#1}}{\text{#2}}$}
@@ -238,13 +238,13 @@
     \multicolumn{2}{c}{Acceptable} &
     \multicolumn{1}{c}{\stacktablehdr{Requesting}{Remote}}\vspace{.5ex}\\
     \hline
-    1 & \obsA@numfirsthalfnights &\obsA@numsecondhalfnights & \obsA@lunarphase &
+    1 & \obsA@numfirsthalfnights &\obsA@numsecondhalfnights & \obsA@moonbrightness &
         \obsA@optdates & \obsA@accdates&& \obsA@remobs\\
     \hline
-    2 & \obsB@numfirsthalfnights& \obsB@numsecondhalfnights & \obsB@lunarphase &
+    2 & \obsB@numfirsthalfnights& \obsB@numsecondhalfnights & \obsB@moonbrightness &
         \obsB@optdates & \obsB@accdates&& \obsB@remobs\\
     \hline
-    3 & \obsC@numfirsthalfnights &\obsC@numsecondhalfnights & \obsC@lunarphase &
+    3 & \obsC@numfirsthalfnights &\obsC@numsecondhalfnights & \obsC@moonbrightness &
         \obsC@optdates & \obsC@accdates&& \obsC@remobs\\
     \hline
     \end{tabular*}
