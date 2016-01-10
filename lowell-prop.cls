@@ -11,6 +11,7 @@
 
 % Page design/layout macros.  Page sizes are at the end of the file.
 
+\RequirePackage{amsmath}
 \RequirePackage{setspace}
 \setstretch{0.98}      % Tighten up baselines a little.
 
@@ -208,7 +209,10 @@
 \def\acceptabledates#1{\global\@namedef{obs\@Alph{\c@obsrun}@accdates}{#1}}
 \def\remoteobserving#1{\global\@namedef{obs\@Alph{\c@obsrun}@remobs}{#1}}
 
-\def\obsrun@head{Summary of observing runs requested for this project\\{\footnotesize Moon-phase and number of days from new moon: darkest $\le$ 3, dark $\le$ 7, grey $\le$ 10, bright $\le$ 14.}}
+\def\obsrun@head{Summary of observing runs requested for this project\\{\footnotesize Use moon-brightness codes VD, D, G, B for mean lunar illuminations of $\le$0.15, $\le$0.25, $\le$0.7, $>$0.7 }}
+%and number of days from new moon: darkest $\le$ 3, dark $\le$ 7, grey $\le$ 10, bright $\le$ 14.}}
+
+\newcommand{\stacktablehdr}[2]{$\genfrac{}{}{0pt}{}{\text{#1}}{\text{#2}}$}
 
 \def\prt@obsruns{\begin{center}{\bf\obsrun@head}\\[1ex]
     \begin{tabular*}{\textwidth}
@@ -229,10 +233,10 @@
     \multicolumn{1}{c}{Run} &
     \multicolumn{1}{c}{\#1$^\mathrm{st} \frac{1}{2}$} &
     \multicolumn{1}{c}{\#2$^\mathrm{nd} \frac{1}{2}$} &
-    \multicolumn{1}{c}{Moon Phase} &
+    \multicolumn{1}{c}{\stacktablehdr{Max Moon}{Brightness}} &
     \multicolumn{1}{c}{Optimal Dates} &
     \multicolumn{2}{c}{Acceptable} &
-    \multicolumn{1}{c}{Remote}\vspace{.5ex}\\
+    \multicolumn{1}{c}{\stacktablehdr{Requesting}{Remote}}\vspace{.5ex}\\
     \hline
     1 & \obsA@numfirsthalfnights &\obsA@numsecondhalfnights & \obsA@lunarphase &
         \obsA@optdates & \obsA@accdates&& \obsA@remobs\\
