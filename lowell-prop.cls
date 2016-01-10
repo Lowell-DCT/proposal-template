@@ -212,17 +212,16 @@
 
 \def\prt@obsruns{\begin{center}{\bf\obsrun@head}\\[1ex]
     \begin{tabular*}{\textwidth}
-        {|c|c|l@{\extracolsep{\fill}}c|}
+        {|c|l@{\extracolsep{\fill}}c|}
     \multicolumn{1}{c}{Run} &
-    \multicolumn{1}{c}{Telescope} &
     \multicolumn{2}{l}{Instrument, detectors, gratings, filters,
     camera optics, etc.}  \\
     \hline
-    1 & \obsA@telid & \obsA@inst & \\
+    1 & \obsA@inst & \\
     \hline
-    2 & \obsB@telid & \obsB@inst & \\
+    2 & \obsB@inst & \\
     \hline
-    3 & \obsC@telid & \obsC@inst & \\
+    3 & \obsC@inst & \\
     \hline
     \end{tabular*}\\
     \vspace{2ex}
