@@ -103,12 +103,17 @@
 \emailaddress{jad@lowell.edu}		% REQUIRED
 \end{CoI}
 
-\begin{CoI}
-\name{J. B. Doe}			% REQUIRED
-\affiliation{Lowell Observatory}		% REQUIRED
-\emailaddress{jbd@lowell.edu}		% REQUIRED
-\end{CoI}
+%\begin{CoI}
+%\name{J. B. Doe}			% REQUIRED
+%\affiliation{Lowell Observatory}		% REQUIRED
+%\emailaddress{jbd@lowell.edu}		% REQUIRED
+%\end{CoI}
 
+%\begin{CoI}
+%\name{}			% REQUIRED
+%\affiliation{}		% REQUIRED
+%\emailaddress{}		% REQUIRED
+%\end{CoI}
 
 % Give an abstract of the scientific justification.  Please write
 % the abstract between the \begin{abstract} and \end{abstract} lines.
@@ -217,23 +222,32 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 \remoteobserving{}
 \end{obsrun}
 
-% You may NOT supply more obsrun blocks. Three is the limit. If you need more
-% runs, put "More than 3 runs requested" in the instrument section for the THIRD
-% run and provide the information for runs 3-N using the following sequence,
-% which you should put AFTER the \unusabledates command:
-%
-% \newpage
-% \propsection{\fbox{Additional Runs}} {~} \par
-% Some sort of listing of the additional runs. Try using the \tabular environment.
+%\begin{obsrun}
+%\telescope{}
+%\instrument{}
+%\numfirsthalfnights{}
+%\numsecondhalfnights{}
+%\lunarphase{}
+%\optimaldates{}
+%\acceptabledates{}
+%\remoteobserving{}
+%\end{obsrun}
+
+% You may supply more obsrun blocks. Three will be displayed on the cover page
+% and the remainder will be placed on an additional overflow cover page.
+
+% You may also offer additional specifics of requests regarding dates, instruments,
+% cadence of observations, etc etc. in the following \MoreObsrunInfo{} block.
+% Leave this next line commented out unless you are using it.
+\MoreObsrunInfo{Place any additional info regarding dates, instruments, cadence of observations, etc. here. }
 
 % If there are dates that you cannot use for non-astronomical reasons,
 % please give the dates by filling in the curly braces in \unusabledates{}.
-% Please explain briefly; \unusabledates is limited to one line.
+% Please explain briefly; \unusabledates is limited to a few lines.
 
 %%%
 \unusabledates{
 Sept 24-26, attending conference  Donec euismod egestas ligula ut semper. Pellentesque ultricies metus sit amet laoreet dictum. Pellentesque efficitur leo id orci condimentum lacinia. Vestibulum egestas fermentum dictum. Vestibulum velit lorem, luctus nec sodales eget, rutrum id lorem. In convallis posuere ligula, ac interdum tortor lacinia sit amet. 
-%Aenean pulvinar rutrum velit, quis facilisis magna porta a. Praesent et est ac massa posuere lobortis. Proin hendrerit eros ac tincidunt luctus. Maecenas mollis dolor velit, ut iaculis sem efficitur eget. Duis mattis mollis maximus. In vulputate blandit nisl quis pulvinar. Morbi imperdiet ultrices sodales. Nam gravida varius urna, quis dignissim mi dignissim eu. Etiam justo mi, facilisis ac eleifend sagittis, euismod id arcu. Praesent elementum finibus diam, vitae gravida risus lacinia et.
 }
 
 % Don't edit or comment out the following line containing \OverflowFromCoverPage{}

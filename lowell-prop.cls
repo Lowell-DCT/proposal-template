@@ -123,13 +123,27 @@
    }
     
 \newenvironment{OverflowFromCoverPage}{
-\ifnum\c@numAuthors>\@maxNumAuthors
-\newpage 
-\hfill {\bf Complete list of investigators} \hfill \break
-\fullAuthorList
-\newpage
-\else
-\fi
+    \ifnum\c@numAuthors>\@maxNumAuthors
+        \def\needoverflowpage{True}
+    \fi
+
+    \@ifundefined{obsD@inst}{}{\def\needoverflowpage{True}}
+    \@ifundefined{overflowobsruninfo}{}{\def\needoverflowpage{True}}
+
+    \@ifundefined{needoverflowpage}{}{\newpage}
+
+    \ifnum\c@numAuthors>\@maxNumAuthors
+        \hfill {\bf Complete list of investigators} \hfill \break
+        \fullAuthorList
+    \fi 
+
+    \@ifundefined{obsD@inst}{}{yep, instrument D is there.}
+
+    \@ifundefined{overflowobsruninfo}{}{
+    \overflowobsrun@head
+    \par\overflowobsruninfo}
+
+    \@ifundefined{needoverflowpage}{}{\newpage}
 }
 
 % Questions for first page.
@@ -232,6 +246,11 @@
     \hline
     \end{tabular*}
     \end{center}}
+
+\def\MoreObsrunInfo#1{\global\def\overflowobsruninfo{#1}}
+
+\def\overflowobsrun@head{$\bullet$\space{\ques@font Additional requests regarding dates, instruments, cadence of observations, etc for observing runs} \hfill}
+
 
 % The scientific justification and the proposed observing program are
 % typeset (printed) as they are specified by the author.  Specific
