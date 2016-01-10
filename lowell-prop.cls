@@ -122,8 +122,7 @@
    \global\let\fullAuthorList\foo
    }
     
-\newenvironment{ExtraCoIs}{
-%\addtocounter{numAuthors}{5}
+\newenvironment{OverflowFromCoverPage}{
 \ifnum\c@numAuthors>\@maxNumAuthors
 \newpage 
 \hfill {\bf Complete list of investigators} \hfill \break
