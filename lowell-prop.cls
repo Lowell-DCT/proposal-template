@@ -158,10 +158,14 @@
 \def\chk@setblank#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
     \def\@kptmpa{\yn@rule}\fi\mbox{\@kptmpa}}
 
-\def\chk@setblankline#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
+\def\chk@setblankthreeline#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
     \def\@kptmpa{\rule{\textwidth}{0.4pt}}\fi
     \parbox[b][1cm][t]{\textwidth}{\@kptmpa}}
 %    \par\makebox[\textwidth][l]{\@kptmpa}}
+
+\def\chk@setblankoneline#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
+    \def\@kptmpa{\rule{\textwidth}{0.4pt}}\fi
+   \par\makebox[\textwidth][l]{\@kptmpa}}
 
 \def\thesis@head{{\ques@font Is this proposal directly related to a PhD thesis?}}
 
@@ -171,6 +175,7 @@
 %  as `service' observing?}}
 \def\undates@head{{\ques@font List dates (local MST) you cannot use for
    non-astronomical reasons, or other scheduling comments}}
+\def\timecritical@head{{\ques@font Time Critical Observation (TCO) status requested for times/dates:}}
 
 \def\thesis#1{\par$\bullet$\space\thesis@head\quad\chk@setblank{#1}}
 \def\longterm#1{\par$\bullet$\space\longterm@head\quad\chk@setblank{#1}
@@ -178,7 +183,10 @@
 \def\longtermdetails#1{\def\@tempa{N}\ifx\@longterm\@tempa\relax\else
     \chk@setblankline{#1}\fi}
 \def\queue#1{\par$\bullet$\space\queue@head\quad\chk@setblank{#1}}
-\def\unusabledates#1{\par$\bullet$\space\undates@head\par\chk@setblankline{#1}}
+
+\def\TimeCriticalObs#1{\par$\bullet$\space\timecritical@head\par\chk@setblankoneline{#1}}
+
+\def\unusabledates#1{\par$\bullet$\space\undates@head\par\chk@setblankthreeline{#1}}
 
 % Observing run environment.  This is used to describe observing parameters
 % in a very succinct manner, to be presented in an abbreviated form on the
