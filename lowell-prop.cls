@@ -167,7 +167,7 @@
     \def\@kptmpa{\rule{\textwidth}{0.4pt}}\fi
    \par\makebox[\textwidth][l]{\@kptmpa}}
 
-\def\thesis@head{{\ques@font Is this proposal directly related to a PhD thesis?}}
+\def\thesis@head{This proposal is part of a PhD thesis.}
 
 %\def\longterm@head{{\ques@font Are you requesting long-term status?
 % If `Y', please give details on the line below.}}
@@ -177,7 +177,7 @@
    non-astronomical reasons, or other scheduling comments}}
 \def\timecritical@head{{\ques@font Time Critical Observation (TCO) status requested for times/dates:}}
 
-\def\thesis#1{\par$\bullet$\space\thesis@head\quad\chk@setblank{#1}}
+\def\thesis#1{\par$\bullet$\space\thesis@head}
 \def\longterm#1{\par$\bullet$\space\longterm@head\quad\chk@setblank{#1}
     \gdef\@longterm{#1}}
 \def\longtermdetails#1{\def\@tempa{N}\ifx\@longterm\@tempa\relax\else
