@@ -138,7 +138,7 @@
         \fullAuthorList
     \fi 
 
-    \@ifundefined{obsD@inst}{}{yep, instrument D is there.}
+    \@ifundefined{obsD@inst}{}{\prt@overflowobsruns}
 
     \@ifundefined{overflowobsruninfo}{}{
     \overflowobsrun@head
@@ -195,7 +195,7 @@
 
 \newcounter{obsrun}
 \newenvironment{obsrun}{\stepcounter{obsrun}}{}
-\def\printCoverPageObsRuns{\par\prt@obsruns\par}
+\def\printCoverPageObsRuns{\par\prt@obsruns{1}{3}\par}
 
 % Observing run parameters to be specified by the investigators.
 %
@@ -222,7 +222,7 @@
 
 \newcommand{\stacktablehdr}[2]{$\genfrac{}{}{0pt}{}{\text{#1}}{\text{#2}}$}
 
-\def\prt@obsruns{\begin{center}{\bf\obsrun@head}\\[1ex]
+\newcommand{\prt@obsruns}{\begin{center}{\bf\obsrun@head}\\[1ex]
     \begin{tabular*}{\textwidth}
         {|c|l@{\extracolsep{\fill}}c|}
     \multicolumn{1}{c}{Run} &
@@ -254,6 +254,62 @@
     \hline}
     \@ifundefined{obsC@inst}{}{3 & \obsC@numfirsthalfnights &\obsC@numsecondhalfnights & \obsC@moonbrightness &
         \obsC@optdates & \obsC@accdates&& \obsC@remobs\\
+    \hline}
+    \end{tabular*}
+    \end{center}}
+
+\newcommand{\prt@overflowobsruns}{\begin{center}{\bf\obsrun@head}\\[1ex]
+    \begin{tabular*}{\textwidth}
+        {|c|l@{\extracolsep{\fill}}c|}
+    \multicolumn{1}{c}{Run} &
+    \multicolumn{2}{l}{Instrument, detectors, gratings, filters,
+    camera optics, etc.}  \\
+    \hline
+    4 & \obsD@inst & \\
+    \hline
+    \@ifundefined{obsE@inst}{}{5 & \obsE@inst & \\
+    \hline}
+    \@ifundefined{obsF@inst}{}{6 & \obsF@inst & \\
+    \hline}
+    \@ifundefined{obsG@inst}{}{7 & \obsG@inst & \\
+    \hline}
+    \@ifundefined{obsH@inst}{}{8 & \obsH@inst & \\
+    \hline}
+    \@ifundefined{obsI@inst}{}{9 & \obsI@inst & \\
+    \hline}
+    \@ifundefined{obsJ@inst}{}{10 & \obsJ@inst & \\
+    \hline}
+    \end{tabular*}\\
+    \vspace{2ex}
+    \begin{tabular*}{\textwidth}{|c|c|c|c|l|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c|}
+    \multicolumn{1}{c}{Run} &
+    \multicolumn{1}{c}{\#1$^\mathrm{st} \frac{1}{2}$} &
+    \multicolumn{1}{c}{\#2$^\mathrm{nd} \frac{1}{2}$} &
+    \multicolumn{1}{c}{\stacktablehdr{Max Moon}{Brightness}} &
+    \multicolumn{1}{c}{Optimal Dates} &
+    \multicolumn{2}{c}{Acceptable} &
+    \multicolumn{1}{c}{\stacktablehdr{Requesting}{Remote}}\vspace{.5ex}\\
+    \hline
+    4 & \obsD@numfirsthalfnights &\obsD@numsecondhalfnights & \obsD@moonbrightness &
+        \obsD@optdates & \obsD@accdates&& \obsD@remobs\\
+    \hline
+    \@ifundefined{obsE@inst}{}{5 & \obsE@numfirsthalfnights& \obsE@numsecondhalfnights & \obsE@moonbrightness &
+        \obsE@optdates & \obsE@accdates&& \obsE@remobs\\
+    \hline}
+    \@ifundefined{obsF@inst}{}{6 & \obsF@numfirsthalfnights& \obsF@numsecondhalfnights & \obsF@moonbrightness &
+        \obsF@optdates & \obsF@accdates&& \obsF@remobs\\
+    \hline}
+    \@ifundefined{obsG@inst}{}{7 & \obsG@numfirsthalfnights& \obsG@numsecondhalfnights & \obsG@moonbrightness &
+        \obsG@optdates & \obsG@accdates&& \obsG@remobs\\
+    \hline}
+    \@ifundefined{obsH@inst}{}{8 & \obsH@numfirsthalfnights& \obsH@numsecondhalfnights & \obsH@moonbrightness &
+        \obsH@optdates & \obsH@accdates&& \obsH@remobs\\
+    \hline}
+    \@ifundefined{obsI@inst}{}{9 & \obsI@numfirsthalfnights& \obsI@numsecondhalfnights & \obsI@moonbrightness &
+        \obsI@optdates & \obsI@accdates&& \obsI@remobs\\
+    \hline}
+    \@ifundefined{obsJ@inst}{}{10 & \obsJ@numfirsthalfnights& \obsJ@numsecondhalfnights & \obsJ@moonbrightness &
+        \obsJ@optdates & \obsJ@accdates&& \obsJ@remobs\\
     \hline}
     \end{tabular*}
     \end{center}}
