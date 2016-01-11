@@ -25,7 +25,7 @@
     \advance\prop@idboxwidth by-2.3\fboxsep
     \fbox{\hbox to\prop@idboxwidth{
     \ifx\@rcptdate\@empty{\it Date:\/} \today
-    \else{\it Date received:\/} \@rcptdate\fi\hfil
+    \else{\it Date received:\/} \@rcptdate\fi\hfill
     }}}
 
 \def\ques@font{\it}
