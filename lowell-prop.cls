@@ -194,8 +194,8 @@
 % groupings, as opposed to a repeating set of parameter identifying macros.
 
 \newcounter{obsrun}
-\newenvironment{obsrun}{\stepcounter{obsrun}}%
-    {\ifnum\c@obsrun=3\par\prt@obsruns\par\fi}
+\newenvironment{obsrun}{\stepcounter{obsrun}}{}
+\def\printCoverPageObsRuns{\par\prt@obsruns\par}
 
 % Observing run parameters to be specified by the investigators.
 %
@@ -231,10 +231,10 @@
     \hline
     1 & \obsA@inst & \\
     \hline
-    2 & \obsB@inst & \\
-    \hline
-    3 & \obsC@inst & \\
-    \hline
+    \@ifundefined{obsB@inst}{}{2 & \obsB@inst & \\
+    \hline}
+    \@ifundefined{obsC@inst}{}{3 & \obsC@inst & \\
+    \hline}
     \end{tabular*}\\
     \vspace{2ex}
     \begin{tabular*}{\textwidth}{|c|c|c|c|l|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c|}
@@ -249,12 +249,12 @@
     1 & \obsA@numfirsthalfnights &\obsA@numsecondhalfnights & \obsA@moonbrightness &
         \obsA@optdates & \obsA@accdates&& \obsA@remobs\\
     \hline
-    2 & \obsB@numfirsthalfnights& \obsB@numsecondhalfnights & \obsB@moonbrightness &
+    \@ifundefined{obsB@inst}{}{2 & \obsB@numfirsthalfnights& \obsB@numsecondhalfnights & \obsB@moonbrightness &
         \obsB@optdates & \obsB@accdates&& \obsB@remobs\\
-    \hline
-    3 & \obsC@numfirsthalfnights &\obsC@numsecondhalfnights & \obsC@moonbrightness &
+    \hline}
+    \@ifundefined{obsC@inst}{}{3 & \obsC@numfirsthalfnights &\obsC@numsecondhalfnights & \obsC@moonbrightness &
         \obsC@optdates & \obsC@accdates&& \obsC@remobs\\
-    \hline
+    \hline}
     \end{tabular*}
     \end{center}}
 

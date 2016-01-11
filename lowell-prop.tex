@@ -48,7 +48,7 @@
 % yourself, do so with a `\\' command at the appropriate point in
 % the title text.
 %%%
-\title{Mysteries of the universe solved}
+\title{Mysteries of the universe solved: A superbly wrong title for an absurdly strong proposal for an absurdly large amount of telescope time}
 
 % Investigator's (PI and CoI) information blocks.
 
@@ -123,7 +123,7 @@
 
 %%%
 \begin{abstract}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectus. Nulla eu malesuada arcu. Aliquam a arcu in orci semper venenatis sed non purus. Pellentesque tempus nibh dolor. Donec eros lorem, gravida quis euismod eu, tempus sit amet neque. Maecenas tempus ex fermentum purus maximus porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed nec metus suscipit metus ultricies fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent id viverra eros
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectus. Nulla eu malesuada arcu. Aliquam arcu orci semper venenatis sed non purus. Pellentesque tempus nibh dolor. Donec eros lorem, gravida quis euismod, tempus amet neque. Maecenas tempus ex fermentum purus maximus porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed nec metus suscipit metus ultricies fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent id viverra eros. Pellentesque tempus nibh dolor. Donec eros lorem, gravida quis euismod eu, tempus sit neque. Maecenas tempus fermentum maximus porttitor. 
 \end{abstract}
 
 
@@ -136,25 +136,24 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 %%%
 \thesis{}  % uncomment this line if this proposal is part of a PhD thesis.
 
-% List the details of the observing runs being requested, for
-% UP TO THREE runs.  The parameters for each run are segregated
+% List the details of the observing runs being requested.  
+% The parameters for each run are segregated
 % between \begin{obsrun} and \end{obsrun} lines.  Please be sure
 % that the information is isolated properly for each run.
+% Up to 3 observing runs will be shown on the primary cover page. 
+% Observing runs #4 and beyond will be on the overflow cover page.
 % If the information doesn't quite fit, try preceding it with a
 % \small, e.g. \instrument{\small Lengthy description of instrument}
 %
 %   \telescope{}	For example, \telescope{DCT}
-%   \instrument{}	For example, \instrument{LMI: UVBRI, H\textalpha-on,H\textalpha-off; 
+%   \instrument{}	For example, \instrument{LMI: UBVRI, H\textalpha-on,H\textalpha-off; 
 %                                                OptiNIRSpec Spectrograph}
 %   \numfirsthalfnights{} For exmaple, \numfirsthalfnights{3}
 %   \numsecondhalfnights{} For exmaple, \numsecondhalfnights{3}
 %   \moonbrightness{}	For example, \moonbrightness{D}
 %   \optimaldates{}	For example, \optimaldates{Sept--Nov}
 %   \acceptabledates{}	For example, \acceptabledates{Sept -- mid-Dec}
-%   \remoteobserving{}  Either Y or N, if remote observing will be utilized.  
-%
-% Please select telescope and instrument identifiers from the list...
-% Instrument combinations may be specified with "+".
+%   \remoteobserving{}  Either Y or N, if remote observing support is requested.  
 %
 % \moonbrightness should specify the maximum acceptable mean moon brightness
 % using the following codes:
@@ -174,7 +173,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 %%%
 \begin{obsrun}
 \telescope{DCT}
-\instrument{LMI: UVBRI}
+\instrument{LMI: UBVRI}
 \numfirsthalfnights{3}
 \numsecondhalfnights{2}
 \moonbrightness{D}
@@ -183,27 +182,27 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 \remoteobserving{Y}
 \end{obsrun}
 
-\begin{obsrun}	% leave these sections in, even if not used!
-\telescope{}
-\instrument{}
-\numfirsthalfnights{}
-\numsecondhalfnights{}
-\moonbrightness{}
-\optimaldates{}
-\acceptabledates{}
-\remoteobserving{}
-\end{obsrun}
+%\begin{obsrun}
+%\telescope{}
+%\instrument{}
+%\numfirsthalfnights{}
+%\numsecondhalfnights{}
+%\moonbrightness{}
+%\optimaldates{}
+%\acceptabledates{}
+%\remoteobserving{}
+%\end{obsrun}
 
-\begin{obsrun}
-\telescope{}
-\instrument{}
-\numfirsthalfnights{}
-\numsecondhalfnights{}
-\moonbrightness{}
-\optimaldates{}
-\acceptabledates{}
-\remoteobserving{}
-\end{obsrun}
+%\begin{obsrun}
+%\telescope{}
+%\instrument{}
+%\numfirsthalfnights{}
+%\numsecondhalfnights{}
+%\moonbrightness{}
+%\optimaldates{}
+%\acceptabledates{}
+%\remoteobserving{}
+%\end{obsrun}
 
 %\begin{obsrun}
 %\telescope{}
@@ -218,6 +217,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 
 % You may supply more obsrun blocks. Three will be displayed on the cover page
 % and the remainder will be placed on an additional overflow cover page.
+
+% do not delete or comment out the following \printCoverPageObsRuns{} block
+\printCoverPageObsRuns{}
 
 % If you are requesting Time Critical Observation (TCO) status for some aspect
 % of your observations, please uncomment the following \TimeCriticalObs{} block
