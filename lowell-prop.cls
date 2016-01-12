@@ -195,7 +195,8 @@
 
 \newcounter{obsrun}
 \newenvironment{obsrun}{\stepcounter{obsrun}}{}
-\def\printCoverPageObsRuns{\par\prt@obsruns{1}{3}\par}
+\newenvironment{ToOrun}{\stepcounter{obsrun}}{\numfirsthalfnights{-}\numsecondhalfnights{-}\remoteobserving{Y}}
+\def\printCoverPageObsRuns{\par\prt@obsruns\par}
 
 % Observing run parameters to be specified by the investigators.
 %
@@ -216,6 +217,10 @@
 \def\optimaldates#1{\global\@namedef{obs\@Alph{\c@obsrun}@optdates}{#1}}
 \def\acceptabledates#1{\global\@namedef{obs\@Alph{\c@obsrun}@accdates}{#1}}
 \def\remoteobserving#1{\global\@namedef{obs\@Alph{\c@obsrun}@remobs}{#1}}
+
+% following is a hack to get ToO info in right place in table
+\def\ToOtype#1{\global\@namedef{obs\@Alph{\c@obsrun}@optdates}{#1 ToO}}
+\def\totalhours#1{\global\@namedef{obs\@Alph{\c@obsrun}@accdates}{#1 hours}}
 
 \def\obsrun@head{Summary of observing runs requested for this project\\{\footnotesize Use moon-brightness codes D, G, B for mean lunar illuminations of $\le$0.25, $\le$0.7, $>$0.7 }}
 %and number of days from new moon: darkest $\le$ 3, dark $\le$ 7, grey $\le$ 10, bright $\le$ 14.}}
