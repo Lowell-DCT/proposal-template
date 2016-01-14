@@ -1,5 +1,5 @@
 % lowell-prop.tex - Lowell Observatory DCT proposal template 
-%   Last update 2016-01-04 by hroe@lowell.edu
+%   Last update 2016-01-14 by hroe@lowell.edu
 
 % General Instructions:
 %  
@@ -18,6 +18,12 @@
 %      - Proposal deadline is listed in the Call for Proposals.
 %      - Submit by sending the PDF of your proposal to tac@lowell.edu
 %   
+% Observer Information for DCT is available at:
+%     https://jumar.lowell.edu/confluence/display/DCTIC/Observing+at+DCT
+%
+% Proposer Information for DCT is available at:
+%     https://jumar.lowell.edu/confluence/display/DCTIC/DCT+Proposal+Information
+% 
 %   Questions/comments:  tac@lowell.edu
 
 \documentclass{lowell-prop}
@@ -48,7 +54,7 @@
 % yourself, do so with a `\\' command at the appropriate point in
 % the title text.
 %%%
-\title{Mysteries of the universe solved: A superbly wrong title for an absurdly strong proposal for an absurdly large amount of telescope time}
+\title{Mysteries of the universe solved: A superbly wrong title for a stupendously strong proposal for an absurdly large amount of telescope time}
 
 % Investigator's (PI and CoI) information blocks.
 
@@ -169,7 +175,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 % \acceptabledates should give the range of ACCEPTABLE dates (i.e., you
 % would not accept time outside those limits).
 %
-% For Target of Opportunity (ToO) program, use the alternate \begin{ToOrun} block
+% When requesting specific nights, please specify them in local MST & explicitly
+% state what you are are requesting.  
+%   e.g.
+% "We are requesting the second half of 27-Feb (MST)." 
+%   -> is requesting the 2nd half of the night that started on 27-Feb (MST)
+%      (although the actual time in UT is 28-Feb)
+% (If concerned, you may specify in both UT & MST, e.g. "The occultation occurs
+%  between 10:15 and 11:45 on 28-Feb (UT), therefore we are requesting the
+%  second half of 27-Feb (MST).")
+%
+% For Target of Opportunity (ToO) program, use the alternate \begin{ToOrun} block.
+% Additional details of the requested ToO observations should be placed in
+% Technical Justification.
 
 % DO NOT remove the \begin{obsrun} and \end{obsrun} blocks
 
@@ -182,18 +200,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 \moonbrightness{D}
 \optimaldates{Feb -- Mar}
 \acceptabledates{Jan -- Mar, May-Jun}
-\remoteobserving{Y}
-\end{obsrun}
-
-\begin{obsrun}
-\telescope{}
-\instrument{IGRINS}
-\numfirsthalfnights{}
-\numsecondhalfnights{}
-\moonbrightness{}
-\optimaldates{}
-\acceptabledates{}
-\remoteobserving{}
+\remoteobserving{N}
 \end{obsrun}
 
 \begin{ToOrun}
@@ -205,7 +212,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 \end{ToOrun}
 
 %\begin{obsrun}
-%\telescope{}
+%\telescope{DCT}
 %\instrument{}
 %\numfirsthalfnights{}
 %\numsecondhalfnights{}
@@ -215,11 +222,28 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 %\remoteobserving{}
 %\end{obsrun}
 
+%\begin{ToOrun}
+%\telescope{DCT}
+%\instrument{}
+%\moonbrightness{any}  % Typically "any" for most ToO programs, but can also be D,G,B following above codes
+%\ToOtype{}   %  "Rapid" (10 minute response time) or "Slow" (30 minute response time)
+%\totalhours{}
+%\end{ToOrun}
+
 % You may supply more obsrun blocks. Three will be displayed on the cover page
 % and the remainder will be placed on an additional overflow cover page.
 
 % do not delete or comment out the following \printCoverPageObsRuns{} block
 \printCoverPageObsRuns{}
+
+% List the people who will be performing the observations, either on-site or
+% remotely. Highlight if any observers are new & in need of training.
+% Note that remote observers must have observed at least once on-site
+% with the scheduled instrument to be qualified.
+
+%%%
+\ObserversAndQualifications{Jane Z.\ Doe will do the 29-Jan (MST) observing run \& is a new observer.  \newline
+Jane X.\ Doe has previously used LMI \& will do the ToO observations.}
 
 % If you are requesting Time Critical Observation (TCO) status for some aspect
 % of your observations, please uncomment the following \TimeCriticalObs{} block
@@ -234,8 +258,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 % You may also offer additional specifics of requests regarding dates, instruments,
 % cadence of observations, etc etc. in the following \MoreObsrunInfo{} block.
 % Leave this next line commented out unless you are using it.
+
 %%%
-\MoreObsrunInfo{Place any additional info regarding dates, instruments, cadence of observations, etc. here. }
+%\MoreObsrunInfo{Place any additional info regarding dates, instruments, cadence of observations, etc. here. }
 
 % If there are dates that you cannot use for non-astronomical reasons,
 % please give the dates by filling in the curly braces in \unusabledates{}.
@@ -243,7 +268,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 
 %%%
 \unusabledates{
-Sept 24-26, attending conference  Donec euismod egestas ligula ut semper. Pellentesque ultricies metus sit amet laoreet dictum. Pellentesque efficitur leo id orci condimentum lacinia. Vestibulum egestas fermentum dictum. Vestibulum velit lorem, luctus nec sodales eget, rutrum id lorem. 
+January 24-26, attending conference  Donec euismod egestas ligula ut semper. Pellentesque ultricies metus sit amet laoreet dictum. Pellentesque efficitur leo id orci condimentum lacinia. Vestibulum egestas fermentum dictum. Vestibulum velit lorem, luctus nec sodales eget, rutrum id lorem. 
 }
 
 % Don't edit or comment out the following line containing \OverflowFromCoverPage{}
@@ -251,13 +276,13 @@ Sept 24-26, attending conference  Donec euismod egestas ligula ut semper. Pellen
 \OverflowFromCoverPage{}
 
 % In the following "essay question" sections, the delimiting pieces of
-% markup (\justification, \feasibility, etc.) act as LaTeX \section*{}
+% markup (\scienceJustification, \feasibility, etc.) act as LaTeX \section*{}
 % commands.  If the author wanted to have numbered subsections within
 % any of these (as per this sample), LaTeX's \subsection could be used.
 
 % Give the scientific justification for the experiment.
 % This section should consist of paragraphs of text (and may include
-% figures) that follow the \justification line.
+% figures) that follow the \scienceJustification line.
 % Be sure to include overall significance to astronomy.
 
 % In order to include a plot, you should use the LaTeX "figure"
@@ -269,7 +294,7 @@ Sept 24-26, attending conference  Donec euismod egestas ligula ut semper. Pellen
 % \end{figure}
 
 %%%
-\justification
+\scienceJustification
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectus. Nulla eu malesuada arcu. Aliquam a arcu in orci semper venenatis sed non purus. Pellentesque tempus nibh dolor. Donec eros lorem, gravida quis euismod eu, tempus sit amet neque. Maecenas tempus ex fermentum purus maximus porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed nec metus suscipit metus ultricies fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent id viverra eros.
 
@@ -282,21 +307,43 @@ Proin in mollis purus. Nullam erat nunc, elementum nec sollicitudin sed, tincidu
 Aenean sit amet ornare massa. Integer porta magna aliquet eros tempus, non egestas lorem vehicula. Vivamus sit amet ultrices justo, non euismod nisl. In sed eleifend justo. Sed in purus mi. Sed ac odio imperdiet, tempor elit eget, mollis diam. Phasellus nisl mi, laoreet eu ultrices id, tincidunt quis mauris. In in felis in nisl molestie lacinia vitae eget massa. Nullam tempus lorem velit, eu tincidunt tortor posuere eu. Curabitur malesuada ipsum et maximus lacinia. Donec nibh mauris, lacinia in mi id, vehicula mattis massa. Fusce iaculis in nulla ut luctus. Donec eu eleifend dui. Donec id erat in lacus sodales euismod eu eget augue.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectus. Nulla eu malesuada arcu. Aliquam a arcu in orci semper venenatis sed non purus. Pellentesque tempus nibh dolor. Donec eros lorem, gravida quis euismod eu, tempus sit amet neque. Maecenas tempus ex fermentum purus maximus porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed nec metus suscipit metus ultricies fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent id viverra eros.
-
-Donec euismod egestas ligula ut semper. Pellentesque ultricies metus sit amet laoreet dictum. Pellentesque efficitur leo id orci condimentum lacinia. Vestibulum egestas fermentum dictum. Vestibulum velit lorem, luctus nec sodales eget, rutrum id lorem. In convallis posuere ligula, ac interdum tortor lacinia sit amet. Aenean pulvinar rutrum velit, quis facilisis magna porta a. Praesent et est ac massa posuere lobortis. Proin hendrerit eros ac tincidunt luctus. Maecenas mollis dolor velit, ut iaculis sem efficitur eget. Duis mattis mollis maximus. In vulputate blandit nisl quis pulvinar. Morbi imperdiet ultrices sodales. Nam gravida varius urna, quis dignissim mi dignissim eu. Etiam justo mi, facilisis ac eleifend sagittis, euismod id arcu. Praesent elementum finibus diam, vitae gravida risus lacinia et.
-
-Morbi mattis non purus at pulvinar. Nullam sollicitudin pretium mi id interdum. Sed eget neque diam. Nam nec arcu at orci luctus efficitur. In a ante rhoncus, scelerisque purus quis, rhoncus nibh. Nunc eget laoreet diam. Integer a fermentum nibh. Fusce luctus fermentum odio, vitae consequat neque fermentum facilisis. Morbi vehicula nec ligula eu rhoncus. Donec in sapien vitae risus condimentum rutrum vel non nisl. Suspendisse potenti. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam imperdiet dignissim neque, in varius lacus dictum aliquet. Ut quis sollicitudin ipsum.
 
  \begin{figure}
    \includegraphics[width=0.5\textwidth]{pluto-small.eps} % for fig.pdf, fig.png or fig.eps
-      \caption{Amazing figure to convince the TAC to give me time.}\label{fig:name}
+      \caption{We predict Pluto will look like this.}\label{fig:name}
  \end{figure}
 
+% Example references section:
 
-Proin in mollis purus. Nullam erat nunc, elementum nec sollicitudin sed, tincidunt eget sapien. Donec in sem eu odio luctus commodo. Integer accumsan risus ut laoreet vulputate. Aenean quis tempor nunc. Suspendisse pretium ornare vestibulum. Aliquam sollicitudin ac est ac sodales. Ut euismod purus vitae ipsum blandit, vitae semper libero ultrices. Etiam posuere vel dolor ac tempor. Curabitur dapibus pulvinar feugiat. Vivamus nec pellentesque ex. In maximus, nisi congue efficitur tempus, arcu risus eleifend orci, eu facilisis mi sapien non velit. Nam pharetra mollis diam, eu egestas ligula sagittis ac. Cras in nisl accumsan, elementum neque id, aliquet ante. Nam tristique purus sit amet tellus pretium, non fermentum enim dignissim. Nulla facilisis cursus auctor.
+\bibliographystyle{abbrv}
+\begin{thebibliography}{99}
+\bibitem{1930PASP...42..351B} Burwell, C.~G.\ 1930.\ Note on 
+Lines in the Red Region of the Spectra of Dwarf Stars of Classes K and M.\ 
+Publications of the Astronomical Society of the Pacific 42, 351. 
 
-Aenean sit amet ornare massa. Integer porta magna aliquet eros tempus, non egestas lorem vehicula. Vivamus sit amet ultrices justo, non euismod nisl. In sed eleifend justo. Sed in purus mi. Sed ac odio imperdiet, tempor elit eget, mollis diam. Phasellus nisl mi, laoreet eu ultrices id, tincidunt quis mauris. In in felis in nisl molestie lacinia vitae eget massa. Nullam tempus lorem velit, eu tincidunt tortor posuere eu. Curabitur malesuada ipsum et maximus lacinia. Donec nibh mauris, lacinia in mi id, vehicula mattis massa. Fusce iaculis in nulla ut luctus. Donec eu eleifend dui. Donec id erat in lacus sodales euismod eu eget augue.
+\bibitem{1930Obs....53..342E} Eddington, A.~S.\ 1930.\ The 
+connection of mass with luminosity for stars.\ The Observatory 53, 342-344. 
 
+\bibitem{1930PASP...42..355J} Jones, R.~B.\ 1930.\ The Orbit 
+of the Spectroscopic Binary {$\epsilon$} Librae.\ Publications of the 
+Astronomical Society of the Pacific 42, 355. 
+
+\bibitem{1930PASP...42..346M} Moore, C.~E.\ 1930.\ The 
+Presence of Ionized Lutecium in the Sun.\ Publications of the Astronomical 
+Society of the Pacific 42, 346. 
+
+\bibitem{1930PASP...42..330M} Moore, J.~H., Menzel, 
+D.~H.\ 1930.\ The Rotation of Uranus.\ Publications of the Astronomical 
+Society of the Pacific 42, 330. 
+
+\bibitem{1930PASP...42..350N} Nicholson, S.~B., 
+Mayall, N.~U.\ 1930.\ The Probable Value of the Mass of Pluto.\ 
+Publications of the Astronomical Society of the Pacific 42, 350. 
+
+\bibitem{1930Natur.126..993V} Vowles, H.~P.\ 1930.\ Persian 
+Science and Jundishapur..\ Nature 126, 993-994. 
+
+\end{thebibliography}
 
 % Assess the technical and scientific feasibility of the experiment.
 % This section should consist of paragraphs of text only (no figures)
@@ -305,9 +352,7 @@ Aenean sit amet ornare massa. Integer porta magna aliquet eros tempus, non egest
 % List objects, coordinates, and magnitudes (or surface brightness,
 % if appropriate), desired S/N, wavelength coverage and resolution.
 % Justify the number of nights requested as well as the specific
-% telescope(s), instruments, and lunar phase. If you've requested
-% long-term status, explain why this is necessary for successful
-% completion of the science.  
+% telescope(s), instruments, and lunar phase. 
 
 %%%
 \feasibility 
@@ -316,17 +361,45 @@ Proin in mollis purus. Nullam erat nunc, elementum nec sollicitudin sed, tincidu
 
 Aenean sit amet ornare massa. Integer porta magna aliquet eros tempus, non egestas lorem vehicula. Vivamus sit amet ultrices justo, non euismod nisl. In sed eleifend justo. Sed in purus mi. Sed ac odio imperdiet, tempor elit eget, mollis diam. Phasellus nisl mi, laoreet eu ultrices id, tincidunt quis mauris. In in felis in nisl molestie lacinia vitae eget massa. Nullam tempus lorem velit, eu tincidunt tortor posuere eu. Curabitur malesuada ipsum et maximus lacinia. Donec nibh mauris, lacinia in mi id, vehicula mattis massa. Fusce iaculis in nulla ut luctus. Donec eu eleifend dui. Donec id erat in lacus sodales euismod eu eget augue.
 
-% How effectively have you used DCT and other related telescope time
-% in the past?  List your allocation of telescope time at DCT during the past 2 years,
+\clearpage
+
+% Fill in the following table with your target list
+
+%%%
+
+\begin{center}
+{\bf Target List} \\[2em]
+\begin{tabular}{l l l l l} 
+\hline\hline 
+&   &   &Integration&  \\
+Object & Coordinates & Mag & Time & Comments \\ [0.5ex] 
+\hline 
+Some star & 15$^h$ 30$^m$, $-4^{\circ}$ & K=7.5 & 1.5 hr & Main program object, etc. \\
+   &   &   &   & \\
+   &   &   &   & \\
+   &   &   &   & \\
+   &   &   &   & \\  [1ex] 
+\hline 
+\end{tabular}
+\end{center}
+
+
+% How effectively have you used DCT in the past? 
+% List your allocation of telescope time at DCT during the past 2 years,
 % together with the current status of the data (cite publications
 % where appropriate).  Mark any allocations of time related to the
-% current proposal with a \relatedwork{} command.  If you have
-% requested remote observing in any of your runs, indicate here
-% the on-site prior experience with the relevant instrument(s).
+% current proposal with a \relatedwork{} command.  
 
 %%%
 \thepast
-November 2015, 2n DCT, "Looking for liners in all the wrong places"  
+
+\begin{itemize}
+
+\item November 2015, 2 nights DCT, "Looking for liners in all the wrong places".  Never opened due to the sudden seagull infestation and concerns for primary mirror safety.
+
+\item February 2016, 2 nights assigned DCT after current proposal deadline, "Still looking, this time in different wrong places".  
+
+\end{itemize}
 
 %\relatedwork{}
 

@@ -19,6 +19,16 @@
 
 \def\prop@head{Lowell Observatory\\\@tele\ Observing Proposal}
 
+\def\revtex@ver{1.0}		% Version number of this file.
+\def\revtex@date{2016-01-14}	% Revision date.
+
+\def\revtex@pageid{\xdef\@thefnmark{\null}
+    \@footnotetext{Lowell Observatory DCT proposal\space
+    \LaTeX\ macros v\revtex@ver \space (Released \revtex@date)}}
+
+\let\ltx@enddoc=\enddocument
+\def\enddocument{\vfill\revtex@pageid\ltx@enddoc}
+
 \newdimen\prop@idboxwidth
 
 \def\prop@idbox{\prop@idboxwidth\textwidth
@@ -158,10 +168,9 @@
 \def\chk@setblank#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
     \def\@kptmpa{\yn@rule}\fi\mbox{\@kptmpa}}
 
-\def\chk@setblankthreeline#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
-    \def\@kptmpa{\rule{\textwidth}{0.4pt}}\fi
-    \parbox[b][1cm][t]{\textwidth}{\@kptmpa}}
-%    \par\makebox[\textwidth][l]{\@kptmpa}}
+\def\chk@setblankthreelines#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
+   \def\@kptmpa{\rule{\textwidth}{0.4pt}}\fi
+   \parbox[b][1cm][t]{\textwidth}{\@kptmpa}}
 
 \def\chk@setblankoneline#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
     \def\@kptmpa{\rule{\textwidth}{0.4pt}}\fi
@@ -173,9 +182,10 @@
 % If `Y', please give details on the line below.}}
 %  \def\queue@head{{\ques@font Would you like these observations conducted
 %  as `service' observing?}}
+\def\observers@head{{\ques@font Observers:}}
+\def\timecritical@head{{\ques@font Time Critical Observation (TCO) status requested for times/dates:}}
 \def\undates@head{{\ques@font List dates (local MST) you cannot use for
    non-astronomical reasons, or other scheduling comments}}
-\def\timecritical@head{{\ques@font Time Critical Observation (TCO) status requested for times/dates:}}
 
 \def\thesis#1{\par$\bullet$\space\thesis@head}
 \def\longterm#1{\par$\bullet$\space\longterm@head\quad\chk@setblank{#1}
@@ -184,9 +194,11 @@
     \chk@setblankline{#1}\fi}
 \def\queue#1{\par$\bullet$\space\queue@head\quad\chk@setblank{#1}}
 
+\def\ObserversAndQualifications#1{\par$\bullet$\space\observers@head\par\chk@setblankthreelines{#1}}
+
 \def\TimeCriticalObs#1{\par$\bullet$\space\timecritical@head\par\chk@setblankoneline{#1}}
 
-\def\unusabledates#1{\par$\bullet$\space\undates@head\par\chk@setblankthreeline{#1}}
+\def\unusabledates#1{\par$\bullet$\space\undates@head\par\chk@setblankthreelines{#1}}
 
 % Observing run environment.  This is used to describe observing parameters
 % in a very succinct manner, to be presented in an abbreviated form on the
@@ -328,7 +340,7 @@
 % typeset (printed) as they are specified by the author.  Specific
 % observations are summarized in the "obsrun" environment (above).
 %
-%    \justification
+%    \scienceJustification
 %    \feasibility
 %    \thepast
 
@@ -339,20 +351,19 @@
     {7pt plus 4pt minus 2pt}{-1em}{\normalsize\bf}}
 \def\subsection{\@startsection{subsection}{2}{\z@}
     {-3.25ex plus -1ex minus -.2ex}{1.5ex plus .2ex}{\normalsize\bf}}
-\def\justif@head{{\instruct@font  Limit to one page of text, and up to one additional page of references and figures (which can be integrated in the text). 
+\def\justif@head{{\instruct@font  Limit to one page of text and up to one additional page of references and figures (which can be integrated into the text).  Write for a general scientific audience.
 \par}}
-\def\feas@head{{\instruct@font One page.  Justify the amount of time requested
-    as well as the specific instrument(s), configuration, and lunar phase. List objects, coordinates, magnitude/surface brightness, desired S/N, wavelength coverage and resolution.  
+\def\feas@head{{\instruct@font Limit to one page of text excluding target list.  Justify the amount of time requested
+    as well as the specific instrument(s), configuration, \& lunar phase. List objects, coordinates, magnitude/surface brightness, desired S/N, wavelength coverage \& resolution.  Justify any request for Time Critical Observation (TCO) status.  Justify \& explain details of any Target of Opportunity (ToO) request.
     \par}}
 \def\past@head{{\instruct@font List your DCT allocations during the past {\bf two} years, 
     together with the current
     status of the data (cite publications where appropriate).  Mark with
     an asterisk those allocations of time related to the current proposal.\par}}
 
-\def\justification{\newpage\propsection{\fbox{Scientific Justification}}
+\def\scienceJustification{\newpage\propsection{\fbox{Scientific Justification}}
     \justif@head}
-\def\feasibility{\newpage\propsection{\fbox{Technical and Scientific
-    Feasibility}}\feas@head}
+\def\feasibility{\clearpage\newpage\propsection{\fbox{Technical Justification}}\feas@head}
 \def\thepast{\vfill\propsection{\fbox{Previous Use of DCT}}
     \past@head}
 
