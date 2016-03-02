@@ -175,6 +175,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 % \acceptabledates should give the range of ACCEPTABLE dates (i.e., you
 % would not accept time outside those limits).
 %
+% \wholenightsrequired is Y or N. (or "-" for ToO). In general scheduling will 
+% attempt to schedule as whole nights if possible. However, programs may be
+% split to half-nights as needed to make the schedule work. If there is a 
+% reason you cannot accept half-nights, then enter "Y" and justify in your 
+% Technical Justification section.
+%
 % When requesting specific nights, please specify them in local MST & explicitly
 % state what you are are requesting.  
 %   e.g.
@@ -201,6 +207,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 \optimaldates{Feb -- Mar}
 \acceptabledates{Jan -- Mar, May-Jun}
 \remoteobserving{N}
+\wholenightsrequired{N}
 \end{obsrun}
 
 \begin{ToOrun}
@@ -211,6 +218,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 \totalhours{5.0}
 \end{ToOrun}
 
+
 %\begin{obsrun}
 %\telescope{DCT}
 %\instrument{}
@@ -220,6 +228,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae felis lectu
 %\optimaldates{}
 %\acceptabledates{}
 %\remoteobserving{}
+%\wholenightsrequired{}
 %\end{obsrun}
 
 %\begin{ToOrun}
@@ -260,8 +269,10 @@ Jane X.\ Doe has previously used LMI \& will do the ToO observations.}
 % Leave this next line commented out unless you are using it.
 
 %%%
-%\MoreObsrunInfo{Place any additional info regarding dates, instruments, cadence of observations, etc. here. }
+\MoreObsrunInfo{Place any additional info regarding dates, instruments, cadence of observations, etc. here. Will be placed on overflow cover page, so can be longer than a few lines.}
 
+% Other scheduling comments, such as dates (local MST) you cannot use 
+% for non-astronomical reasons, go in \unusabledates
 % If there are dates that you cannot use for non-astronomical reasons,
 % please give the dates by filling in the curly braces in \unusabledates{}.
 % Please explain briefly; \unusabledates is limited to a few lines.
@@ -347,15 +358,18 @@ Science and Jundishapur..\ Nature 126, 993-994.
 
 % Assess the technical and scientific feasibility of the experiment.
 % This section should consist of paragraphs of text only (no figures)
-% that follow the \feasibility line.
+% that follow the \techJustification line.
 %
-% List objects, coordinates, and magnitudes (or surface brightness,
-% if appropriate), desired S/N, wavelength coverage and resolution.
-% Justify the number of nights requested as well as the specific
-% telescope(s), instruments, and lunar phase. 
-
+% Limit to one page of text excluding target list. 
+% 
+% Justify the amount of time requested as well as the specific 
+% instrument(s), configuration, & lunar phase. List objects, coordinates, 
+% magnitude/surface brightness, desired S/N, wavelength coverage & 
+% resolution. Justify any request for Time Critical Observation (TCO) 
+% status. Justify & explain details of any Target of Opportunity (ToO) 
+% request. If you require whole (vs. half) nights, explain why.
 %%%
-\feasibility 
+\techJustification 
 
 Proin in mollis purus. Nullam erat nunc, elementum nec sollicitudin sed, tincidunt eget sapien. Donec in sem eu odio luctus commodo. Integer accumsan risus ut laoreet vulputate. Aenean quis tempor nunc. Suspendisse pretium ornare vestibulum. Aliquam sollicitudin ac est ac sodales. Ut euismod purus vitae ipsum blandit, vitae semper libero ultrices. Etiam posuere vel dolor ac tempor. Curabitur dapibus pulvinar feugiat. Vivamus nec pellentesque ex. In maximus, nisi congue efficitur tempus, arcu risus eleifend orci, eu facilisis mi sapien non velit. Nam pharetra mollis diam, eu egestas ligula sagittis ac. Cras in nisl accumsan, elementum neque id, aliquet ante. Nam tristique purus sit amet tellus pretium, non fermentum enim dignissim. Nulla facilisis cursus auctor.
 

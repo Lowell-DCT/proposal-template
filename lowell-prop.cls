@@ -19,8 +19,8 @@
 
 \def\prop@head{Lowell Observatory\\\@tele\ Observing Proposal}
 
-\def\revtex@ver{1.0}		% Version number of this file.
-\def\revtex@date{2016-01-14}	% Revision date.
+\def\revtex@ver{1.1}		% Version number of this file.
+\def\revtex@date{2016-03-02}	% Revision date.
 
 \def\revtex@pageid{\xdef\@thefnmark{\null}
     \@footnotetext{Lowell Observatory DCT proposal\space
@@ -89,17 +89,33 @@
 \def\yn@rule{\rule{0.3in}{0.4pt}}
 \newcount\@maxNumAuthors \@maxNumAuthors=4
 
+%\def\prt@coiblock{\begin{tabbing}
+%    \makebox[.25\textwidth]{\null}\=\makebox[.25\textwidth]{\null}\=
+%    \makebox[.25\textwidth]{\null}\=\kill
+%    \hbox to.25\textwidth{\obs@tag\space%
+%        \ifx\@empty\obs@name\hrulefill\space\else\obs@name\hfill\fi}%
+%    \hbox to.42\textwidth{Affiliation:\space%
+%       \ifx\@empty\obs@affiliation@rule\else\obs@affiliation\fi\hfill}%
+%    \hbox to.3\textwidth{Email:\space%
+%        \ifx\@empty\obs@email \hrulefill\else\obs@email\hfill\fi}
+%%\\[.2ex]
+%    \end{tabbing}}
+
 \def\prt@coiblock{\begin{tabbing}
     \makebox[.25\textwidth]{\null}\=\makebox[.25\textwidth]{\null}\=
     \makebox[.25\textwidth]{\null}\=\kill
-    \hbox to.25\textwidth{\obs@tag\space%
-        \ifx\@empty\obs@name\hrulefill\space\else\obs@name\hfill\fi}%
-    \hbox to.42\textwidth{Affiliation:\space%
-       \ifx\@empty\obs@affiliation@rule\else\obs@affiliation\fi\hfill}%
-    \hbox to.3\textwidth{Email:\space%
-        \ifx\@empty\obs@email \hrulefill\else\obs@email\hfill\fi}
-%\\[.2ex]
+    \hbox to1\textwidth{\obs@tag\space\obs@name\hfill\obs@affiliation\space(\obs@email)}
+    
+    
+%    \hbox to.7\textwidth{\obs@tag\space%
+%        \ifx\@empty\obs@name\hrulefill\space\else\obs@name\fi\space(\obs@affiliation)\hfill}%
+%%    \hbox to.42\textwidth{Affiliation:\space%
+%%       \ifx\@empty\obs@affiliation@rule\else\obs@affiliation\fi\hfill}%
+%    \hbox to.3\textwidth{Email:\space%
+%        \ifx\@empty\obs@email \hrulefill\else\obs@email\hfill\fi}
+%%\\[.2ex]
     \end{tabbing}}
+
 
 \def\fullAuthorList{}
 
@@ -122,6 +138,8 @@
    \edef\foo{\fullAuthorList PI: \obs@name \hfill \obs@affiliation \hfill Email: \obs@email \break}
    \global\let\fullAuthorList\foo
     }
+    
+    
 %\newenvironment{CoI}{\clear@obs\stepcounter{CoI}}{\ifnum\c@CoI>\@maxNumAuthors
 %    \prt@xcoiblock\else\vspace*{-5ex}\prt@coiblock\fi}
 \newenvironment{CoI}{\clear@obs\stepcounter{numAuthors}}{
@@ -184,8 +202,7 @@
 %  as `service' observing?}}
 \def\observers@head{{\ques@font Observers:}}
 \def\timecritical@head{{\ques@font Time Critical Observation (TCO) status requested for times/dates:}}
-\def\undates@head{{\ques@font List dates (local MST) you cannot use for
-   non-astronomical reasons, or other scheduling comments}}
+\def\undates@head{{\ques@font Other scheduling issues, such as dates (local MST) you cannot use for non-astronomical reasons}}
 
 \def\thesis#1{\par$\bullet$\space\thesis@head}
 \def\longterm#1{\par$\bullet$\space\longterm@head\quad\chk@setblank{#1}
@@ -207,7 +224,7 @@
 
 \newcounter{obsrun}
 \newenvironment{obsrun}{\stepcounter{obsrun}}{}
-\newenvironment{ToOrun}{\stepcounter{obsrun}}{\numfirsthalfnights{-}\numsecondhalfnights{-}\remoteobserving{Y}}
+\newenvironment{ToOrun}{\stepcounter{obsrun}}{\numfirsthalfnights{-}\numsecondhalfnights{-}\remoteobserving{-}\wholenightsrequired{-}}
 \def\printCoverPageObsRuns{\par\prt@obsruns\par}
 
 % Observing run parameters to be specified by the investigators.
@@ -229,104 +246,108 @@
 \def\optimaldates#1{\global\@namedef{obs\@Alph{\c@obsrun}@optdates}{#1}}
 \def\acceptabledates#1{\global\@namedef{obs\@Alph{\c@obsrun}@accdates}{#1}}
 \def\remoteobserving#1{\global\@namedef{obs\@Alph{\c@obsrun}@remobs}{#1}}
+\def\wholenightsrequired#1{\global\@namedef{obs\@Alph{\c@obsrun}@wholenights}{#1}}
 
 % following is a hack to get ToO info in right place in table
 \def\ToOtype#1{\global\@namedef{obs\@Alph{\c@obsrun}@optdates}{#1 ToO}}
 \def\totalhours#1{\global\@namedef{obs\@Alph{\c@obsrun}@accdates}{#1 hours}}
 
-\def\obsrun@head{Summary of observing runs requested for this project\\{\footnotesize Use moon-brightness codes D, G, B for mean lunar illuminations of $\le$0.25, $\le$0.7, $>$0.7 }}
+\def\obsrun@head{Summary of observing runs requested for this project\\{\footnotesize Use moon-brightness codes D, G, B for {\it mean} lunar illuminations of $\le$0.25, $\le$0.7, $>$0.7 }}
 %and number of days from new moon: darkest $\le$ 3, dark $\le$ 7, grey $\le$ 10, bright $\le$ 14.}}
 
 \newcommand{\stacktablehdr}[2]{$\genfrac{}{}{0pt}{}{\text{#1}}{\text{#2}}$}
 
 \newcommand{\prt@obsruns}{\begin{center}{\bf\obsrun@head}\\[1ex]
     \begin{tabular*}{\textwidth}
-        {|c|l@{\extracolsep{\fill}}c|}
+        {|c|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|}
     \multicolumn{1}{c}{Run} &
     \multicolumn{2}{l}{Instrument, detectors, gratings, filters,
-    camera optics, etc.}  \\
+    camera optics, etc.} &
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Remote}{Requested}}\vspace{.5ex}\\
     \hline
-    1 & \obsA@inst & \\
+    1 & \obsA@inst && \obsA@remobs \\
     \hline
-    \@ifundefined{obsB@inst}{}{2 & \obsB@inst & \\
+    \@ifundefined{obsB@inst}{}{2 & \obsB@inst && \obsB@remobs \\
     \hline}
-    \@ifundefined{obsC@inst}{}{3 & \obsC@inst & \\
+    \@ifundefined{obsC@inst}{}{3 & \obsC@inst && \obsC@remobs \\
     \hline}
     \end{tabular*}\\
     \vspace{2ex}
-    \begin{tabular*}{\textwidth}{|c|c|c|c|l|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c|}
-    \multicolumn{1}{c}{Run} &
+    \begin{tabular*}{\textwidth}{|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|l|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|}
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Run} &
     \multicolumn{1}{c}{\#1$^\mathrm{st} \frac{1}{2}$} &
     \multicolumn{1}{c}{\#2$^\mathrm{nd} \frac{1}{2}$} &
-    \multicolumn{1}{c}{\stacktablehdr{Max Moon}{Brightness}} &
-    \multicolumn{1}{c}{Optimal Dates} &
-    \multicolumn{2}{c}{Acceptable} &
-    \multicolumn{1}{c}{\stacktablehdr{Requesting}{Remote}}\vspace{.5ex}\\
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Max Moon}{Brightness}} &
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Optimal Dates} &
+    \multicolumn{2}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Acceptable} &
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Whole Nights}{Required}}\vspace{.5ex}\\
     \hline
     1 & \obsA@numfirsthalfnights &\obsA@numsecondhalfnights & \obsA@moonbrightness &
-        \obsA@optdates & \obsA@accdates&& \obsA@remobs\\
+        \obsA@optdates & \obsA@accdates&& \obsA@wholenights\\
     \hline
     \@ifundefined{obsB@inst}{}{2 & \obsB@numfirsthalfnights& \obsB@numsecondhalfnights & \obsB@moonbrightness &
-        \obsB@optdates & \obsB@accdates&& \obsB@remobs\\
+        \obsB@optdates & \obsB@accdates&& \obsB@wholenights\\
     \hline}
     \@ifundefined{obsC@inst}{}{3 & \obsC@numfirsthalfnights &\obsC@numsecondhalfnights & \obsC@moonbrightness &
-        \obsC@optdates & \obsC@accdates&& \obsC@remobs\\
+        \obsC@optdates & \obsC@accdates&& \obsC@wholenights\\
     \hline}
     \end{tabular*}
     \end{center}}
 
 \newcommand{\prt@overflowobsruns}{\begin{center}{\bf\obsrun@head}\\[1ex]
     \begin{tabular*}{\textwidth}
-        {|c|l@{\extracolsep{\fill}}c|}
+        {|c|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|}
     \multicolumn{1}{c}{Run} &
     \multicolumn{2}{l}{Instrument, detectors, gratings, filters,
-    camera optics, etc.}  \\
+    camera optics, etc.} &
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{ \stacktablehdr{Remote}{Requested}}\vspace{.5ex}\\
     \hline
-    4 & \obsD@inst & \\
+    4 & \obsD@inst && \obsD@remobs \\
     \hline
-    \@ifundefined{obsE@inst}{}{5 & \obsE@inst & \\
+    \@ifundefined{obsE@inst}{}{5 & \obsE@inst && \obsE@remobs \\
     \hline}
-    \@ifundefined{obsF@inst}{}{6 & \obsF@inst & \\
+    \@ifundefined{obsF@inst}{}{6 & \obsF@inst && \obsF@remobs \\
     \hline}
-    \@ifundefined{obsG@inst}{}{7 & \obsG@inst & \\
+    \@ifundefined{obsG@inst}{}{7 & \obsG@inst && \obsG@remobs \\
     \hline}
-    \@ifundefined{obsH@inst}{}{8 & \obsH@inst & \\
+    \@ifundefined{obsH@inst}{}{8 & \obsH@inst && \obsH@remobs \\
     \hline}
-    \@ifundefined{obsI@inst}{}{9 & \obsI@inst & \\
+    \@ifundefined{obsI@inst}{}{9 & \obsI@inst && \obsI@remobs \\
     \hline}
-    \@ifundefined{obsJ@inst}{}{10 & \obsJ@inst & \\
+    \@ifundefined{obsJ@inst}{}{10 & \obsJ@inst && \obsJ@remobs \\
     \hline}
     \end{tabular*}\\
     \vspace{2ex}
-    \begin{tabular*}{\textwidth}{|c|c|c|c|l|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c|}
-    \multicolumn{1}{c}{Run} &
+   
+    \begin{tabular*}{\textwidth}{|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|l|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|}
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Run} &
     \multicolumn{1}{c}{\#1$^\mathrm{st} \frac{1}{2}$} &
     \multicolumn{1}{c}{\#2$^\mathrm{nd} \frac{1}{2}$} &
-    \multicolumn{1}{c}{\stacktablehdr{Max Moon}{Brightness}} &
-    \multicolumn{1}{c}{Optimal Dates} &
-    \multicolumn{2}{c}{Acceptable} &
-    \multicolumn{1}{c}{\stacktablehdr{Requesting}{Remote}}\vspace{.5ex}\\
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Max Moon}{Brightness}} &
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Optimal Dates} &
+    \multicolumn{2}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Acceptable} &
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Whole Nights}{Required}}\vspace{.5ex}\\
     \hline
     4 & \obsD@numfirsthalfnights &\obsD@numsecondhalfnights & \obsD@moonbrightness &
-        \obsD@optdates & \obsD@accdates&& \obsD@remobs\\
+        \obsD@optdates & \obsD@accdates&& \obsD@wholenights\\
     \hline
     \@ifundefined{obsE@inst}{}{5 & \obsE@numfirsthalfnights& \obsE@numsecondhalfnights & \obsE@moonbrightness &
-        \obsE@optdates & \obsE@accdates&& \obsE@remobs\\
+        \obsE@optdates & \obsE@accdates&& \obsE@wholenights\\
     \hline}
     \@ifundefined{obsF@inst}{}{6 & \obsF@numfirsthalfnights& \obsF@numsecondhalfnights & \obsF@moonbrightness &
-        \obsF@optdates & \obsF@accdates&& \obsF@remobs\\
+        \obsF@optdates & \obsF@accdates&& \obsF@wholenights\\
     \hline}
     \@ifundefined{obsG@inst}{}{7 & \obsG@numfirsthalfnights& \obsG@numsecondhalfnights & \obsG@moonbrightness &
-        \obsG@optdates & \obsG@accdates&& \obsG@remobs\\
+        \obsG@optdates & \obsG@accdates&& \obsG@wholenights\\
     \hline}
     \@ifundefined{obsH@inst}{}{8 & \obsH@numfirsthalfnights& \obsH@numsecondhalfnights & \obsH@moonbrightness &
-        \obsH@optdates & \obsH@accdates&& \obsH@remobs\\
+        \obsH@optdates & \obsH@accdates&& \obsH@wholenights\\
     \hline}
     \@ifundefined{obsI@inst}{}{9 & \obsI@numfirsthalfnights& \obsI@numsecondhalfnights & \obsI@moonbrightness &
-        \obsI@optdates & \obsI@accdates&& \obsI@remobs\\
+        \obsI@optdates & \obsI@accdates&& \obsI@wholenights\\
     \hline}
     \@ifundefined{obsJ@inst}{}{10 & \obsJ@numfirsthalfnights& \obsJ@numsecondhalfnights & \obsJ@moonbrightness &
-        \obsJ@optdates & \obsJ@accdates&& \obsJ@remobs\\
+        \obsJ@optdates & \obsJ@accdates&& \obsJ@wholenights\\
     \hline}
     \end{tabular*}
     \end{center}}
@@ -341,7 +362,7 @@
 % observations are summarized in the "obsrun" environment (above).
 %
 %    \scienceJustification
-%    \feasibility
+%    \techJustification
 %    \thepast
 
 \newenvironment{references}{\subsubsection*{References}}{\relax}
@@ -354,7 +375,7 @@
 \def\justif@head{{\instruct@font  Limit to one page of text and up to one additional page of references and figures (which can be integrated into the text).  Write for a general scientific audience.
 \par}}
 \def\feas@head{{\instruct@font Limit to one page of text excluding target list.  Justify the amount of time requested
-    as well as the specific instrument(s), configuration, \& lunar phase. List objects, coordinates, magnitude/surface brightness, desired S/N, wavelength coverage \& resolution.  Justify any request for Time Critical Observation (TCO) status.  Justify \& explain details of any Target of Opportunity (ToO) request.
+    as well as the specific instrument(s), configuration, \& lunar phase. List objects, coordinates, magnitude/surface brightness, desired S/N, wavelength coverage \& resolution.  Justify any request for Time Critical Observation (TCO) status.  Justify \& explain details of any Target of Opportunity (ToO) request.  If you require whole (vs.\ half) nights, explain why.
     \par}}
 \def\past@head{{\instruct@font List your DCT allocations during the past {\bf two} years, 
     together with the current
@@ -363,7 +384,7 @@
 
 \def\scienceJustification{\newpage\propsection{\fbox{Scientific Justification}}
     \justif@head}
-\def\feasibility{\clearpage\newpage\propsection{\fbox{Technical Justification}}\feas@head}
+\def\techJustification{\clearpage\newpage\propsection{\fbox{Technical Justification}}\feas@head}
 \def\thepast{\vfill\propsection{\fbox{Previous Use of DCT}}
     \past@head}
 
