@@ -1,3 +1,6 @@
+examples
+test.*
+*.bbprojectd
 lowell-prop.aux
 lowell-prop.dvi
 lowell-prop.log
