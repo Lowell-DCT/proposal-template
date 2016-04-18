@@ -6,7 +6,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lowell-prop}[2016/04/15 Lowell Observatory DCT Observing Proposal]
+\ProvidesClass{lowell-prop}[2016/04/18 Lowell Observatory DCT Observing Proposal]
 \LoadClass[11pt]{article}
 
 % Page design/layout macros.  Page sizes are at the end of the file.
@@ -19,8 +19,8 @@
 
 \def\prop@head{Lowell Observatory\\\@tele\ Observing Proposal}
 
-\def\revtex@ver{1.2}		% Version number of this file.
-\def\revtex@date{2016-04-15}	% Revision date.
+\def\revtex@ver{1.2.1}		% Version number of this file.
+\def\revtex@date{2016-04-18}	% Revision date.
 
 \def\revtex@pageid{\xdef\@thefnmark{\null}
     \@footnotetext{Lowell Observatory DCT proposal\space

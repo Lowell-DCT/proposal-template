@@ -1,0 +1,13 @@
+
+# Release checklist
+
+Tasks to release new version:
+
+- update date at top of lowell-prop.tex
+- update following lines in lowell-prop.cls (note specific date formats)
+    - `\ProvidesClass{lowell-prop}[2016/04/18 Lowell Observatory DCT Observing Proposal]`
+    - `\def\revtex@ver{1.2.1}		% Version number of this file.`
+    - `\def\revtex@date{2016-04-18}	% Revision date.`
+- be sure all files staged/committed to git
+- tag with version number
+- push to github
