@@ -11,3 +11,4 @@ Tasks to release new version:
 - be sure all files staged/committed to git
 - tag with version number
 - push to github
+- publish tag to origin in tower
