@@ -6,7 +6,7 @@ LaTeX proposal template package for proposals to Lowell Observatory's Discovery 
 
 Download the latest version of this package from [https://github.com/Lowell-DCT/proposal-template/archive/master.zip](https://github.com/Lowell-DCT/proposal-template/archive/master.zip).
 
-Once unzipped, do a `make` inside the directory and, if LaTeX is installed correctly on your computer, an example proposal PDF should be gneerated.
+Once unzipped, do a `make` inside the directory and, if LaTeX is installed correctly on your computer, an example proposal PDF should be generated.
 
 ## History
 
