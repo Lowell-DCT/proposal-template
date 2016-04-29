@@ -26,6 +26,8 @@
     \@footnotetext{Lowell Observatory DCT proposal\space
     \LaTeX\ macros v\revtex@ver \space (Released \revtex@date)}}
 
+\def\deg{\ifmmode^\circ\else$^\circ$\fi}
+
 \let\ltx@enddoc=\enddocument
 \def\enddocument{\vfill\revtex@pageid\ltx@enddoc}
 
