@@ -27,6 +27,20 @@
     \LaTeX\ macros v\revtex@ver \space (Released \revtex@date)}}
 
 \def\deg{\ifmmode^\circ\else$^\circ$\fi}
+\def\micron{\mbox{$\mu$m}}% 
+\def\fdg{\mbox{$.\!\!^\circ$}}% 
+\def\farcm{ \mbox{% 
+  \kern  0.13ex.% 
+  \kern -0.95ex\raisebox{.9ex}{\scriptsize$\prime$}% 
+  \kern -0.1ex% 
+ }% 
+}
+\def\farcs{ \mbox{% 
+  \kern  0.13ex.% 
+  \kern -0.95ex\raisebox{.9ex}{\scriptsize$\prime\prime$}% 
+  \kern -0.1ex% 
+ }% 
+}
 
 \let\ltx@enddoc=\enddocument
 \def\enddocument{\vfill\revtex@pageid\ltx@enddoc}
