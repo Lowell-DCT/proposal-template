@@ -6,7 +6,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lowell-prop}[2016/04/18 Lowell Observatory DCT Observing Proposal]
+\ProvidesClass{lowell-prop}[2016/07/08 Lowell Observatory DCT Observing Proposal]
 \LoadClass[11pt]{article}
 
 % Page design/layout macros.  Page sizes are at the end of the file.
@@ -19,8 +19,8 @@
 
 \def\prop@head{Lowell Observatory\\\@tele\ Observing Proposal}
 
-\def\revtex@ver{1.2.1}		% Version number of this file.
-\def\revtex@date{2016-04-18}	% Revision date.
+\def\revtex@ver{1.3.0}		% Version number of this file.
+\def\revtex@date{2016-07-08}	% Revision date.
 
 \def\revtex@pageid{\xdef\@thefnmark{\null}
     \@footnotetext{Lowell Observatory DCT proposal\space
@@ -371,7 +371,7 @@
 % observations are summarized in the "obsrun" environment (above).
 %
 %    \scienceJustification
-%    \techJustification
+%    \observingRequest
 
 \newenvironment{references}{\subsubsection*{References}}{\relax}
 \let\reference=\par
@@ -382,15 +382,14 @@
     {-3.25ex plus -1ex minus -.2ex}{1.5ex plus .2ex}{\normalsize\bf}}
 \def\justif@head{{\instruct@font  Limit to one page of text and figure(s); References may appear on a second page. You may use your 1 page of Science Justification as you wish, but do not alter default line spacing, margins, font size. Most proposals should consist of no more than $\sim$300 words of text and a figure. Figures should be legible and not too small. Write for a general scientific audience.
 \par}}
-\def\feas@head{{\instruct@font Limit to one page of text excluding target list.  Justify the amount of time requested
-    as well as the specific instrument(s), configuration, \& lunar phase. List objects, coordinates, magnitude/surface brightness, desired S/N, wavelength coverage \& resolution.  Justify any request for Time Critical Observation (TCO) status.  Justify \& explain details of any Target of Opportunity (ToO) request.  If you require whole (vs.\ half) nights, explain why.
+\def\feas@head{{\instruct@font Limit to one page of text excluding target list. List objects, coordinates, magnitude/surface brightness, desired S/N, wavelength coverage \& resolution. Justify the amount of time requested as well as the specific instrument(s), configuration, \& lunar phase. Justify any request for Time Critical Observation (TCO) status.  Justify \& explain details of any Target of Opportunity (ToO) request. If you require whole (vs.\ half) nights, explain why. Explain any other details of your observing request not fully captured on the cover page.
     \par}}
 
 \def\removeScienceJustificationInstructions{\def\justif@head{{\instruct@font \hspace{0.1in} \par}}}
 
 \def\scienceJustification{\newpage\propsection{\fbox{Scientific Justification}}
     \justif@head}
-\def\techJustification{\clearpage\newpage\propsection{\fbox{Technical Justification}}\feas@head}
+\def\observingRequest{\clearpage\newpage\propsection{\fbox{Observing Request Details}}\feas@head}
 
 
 %\RequirePackage{amstext}
