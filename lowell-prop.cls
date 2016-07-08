@@ -380,11 +380,13 @@
     {7pt plus 4pt minus 2pt}{-1em}{\normalsize\bf}}
 \def\subsection{\@startsection{subsection}{2}{\z@}
     {-3.25ex plus -1ex minus -.2ex}{1.5ex plus .2ex}{\normalsize\bf}}
-\def\justif@head{{\instruct@font  Limit to one page of text and up to one additional page of references and figures (which can be integrated into the text).  Write for a general scientific audience.
+\def\justif@head{{\instruct@font  Limit to one page of text and figure(s); References may appear on a second page. You may use your 1 page of Science Justification as you wish, but do not alter default line spacing, margins, font size. Most proposals should consist of no more than $\sim$300 words of text and a figure. Figures should be legible and not too small. Write for a general scientific audience.
 \par}}
 \def\feas@head{{\instruct@font Limit to one page of text excluding target list.  Justify the amount of time requested
     as well as the specific instrument(s), configuration, \& lunar phase. List objects, coordinates, magnitude/surface brightness, desired S/N, wavelength coverage \& resolution.  Justify any request for Time Critical Observation (TCO) status.  Justify \& explain details of any Target of Opportunity (ToO) request.  If you require whole (vs.\ half) nights, explain why.
     \par}}
+
+\def\removeScienceJustificationInstructions{\def\justif@head{{\instruct@font \hspace{0.1in} \par}}}
 
 \def\scienceJustification{\newpage\propsection{\fbox{Scientific Justification}}
     \justif@head}
