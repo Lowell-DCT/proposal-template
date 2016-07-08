@@ -96,7 +96,7 @@
 % Formatting of PI and CO-I data are controlled by the next two macros.
 
 \def\yn@rule{\rule{0.3in}{0.4pt}}
-\newcount\@maxNumAuthors \@maxNumAuthors=4
+\newcount\@maxNumAuthors \@maxNumAuthors=5
 
 %\def\prt@coiblock{\begin{tabbing}
 %    \makebox[.25\textwidth]{\null}\=\makebox[.25\textwidth]{\null}\=
