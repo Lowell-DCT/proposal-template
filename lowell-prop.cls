@@ -68,13 +68,6 @@
     \makebox[\textwidth]{\large{\bf Title:}}\par
     \else{\large{\bf Title:} \@tempa}\fi}
 
-\def\abstract{\par\vspace{0ex}\vbox to2.35in\bgroup\noindent
-    \\[.2ex]
-    {\bf Abstract of Scientific Justification (Limit 100 words)}
-    
-    \parindent\z@}
-\let\ltx@endabstract=\endabstract
-\def\endabstract{\ltx@endabstract\vfil\egroup\vspace{\fill}}
 
 % Observer identification.  These items are buffered so that they can be
 % specified in any order, subject only to the restriction that the observer
