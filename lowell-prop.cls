@@ -372,7 +372,6 @@
 %
 %    \scienceJustification
 %    \techJustification
-%    \thepast
 
 \newenvironment{references}{\subsubsection*{References}}{\relax}
 \let\reference=\par
@@ -386,18 +385,10 @@
 \def\feas@head{{\instruct@font Limit to one page of text excluding target list.  Justify the amount of time requested
     as well as the specific instrument(s), configuration, \& lunar phase. List objects, coordinates, magnitude/surface brightness, desired S/N, wavelength coverage \& resolution.  Justify any request for Time Critical Observation (TCO) status.  Justify \& explain details of any Target of Opportunity (ToO) request.  If you require whole (vs.\ half) nights, explain why.
     \par}}
-\def\past@head{{\instruct@font List your DCT allocations during the past {\bf two} years, 
-    together with the current
-    status of the data (cite publications where appropriate).  Mark with
-    an asterisk those allocations of time related to the current proposal.\par}}
 
 \def\scienceJustification{\newpage\propsection{\fbox{Scientific Justification}}
     \justif@head}
 \def\techJustification{\clearpage\newpage\propsection{\fbox{Technical Justification}}\feas@head}
-\def\thepast{\vfill\propsection{\fbox{Previous Use of DCT}}
-    \past@head}
-
-\def\relatedwork#1{\fbox{$\star$}\space#1}
 
 
 %\RequirePackage{amstext}
