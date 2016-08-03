@@ -47,7 +47,7 @@
 
 \let\ltx@enddoc=\enddocument
 \def\enddocument{\vfill
-\noindent\makebox[\linewidth]{\rlap{\scalebox{.1}{\tiny{startName Henry Roe endName}}}\rule{\textwidth}{1.5pt}}
+\noindent\makebox[\linewidth]{\rlap{\scalebox{.05}{\tiny{startName Henry Roe endName}}}\rule{\textwidth}{0.75pt}}
 \newline
 \revtex@pageid\ltx@enddoc}
 
