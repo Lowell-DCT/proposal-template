@@ -73,16 +73,10 @@
 \def\prop@idbox{\prop@idboxwidth\textwidth
     \advance\prop@idboxwidth by-2.3\fboxsep
     \fbox{\hbox to\prop@idboxwidth{
-    \ifx\@rcptdate\@empty{\it Date:\/} \today
-    \else{\it Date received:\/} \@rcptdate\fi\hfill
-    }}}
+    {\it Date:\/} \today\hfill}}}
 
 \def\ques@font{\it}
 \def\instruct@font{\small\sl}
-
-\def\received#1{\gdef\@rcptdate{#1}} \received{}
-\def\proposalid#1{\gdef\@propid{#1}} \proposalid{\hspace{1in}}
-
 
 \def\title#1{\null\vspace{-2\headheight}\vspace{-\headsep}
     \begin{center}\large\bf\prop@head\end{center}\prop@idbox\par
