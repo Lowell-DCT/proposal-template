@@ -220,7 +220,7 @@
     \def\@kptmpa{\rule{\textwidth}{0.4pt}}\fi
    \par\makebox[\textwidth][l]{\@kptmpa}}
 
-\def\thesis@head{This proposal is part of a PhD thesis.}
+\def\thesis@head{This proposal is part of a Masters or PhD thesis.}
 
 %\def\longterm@head{{\ques@font Are you requesting long-term status?
 % If `Y', please give details on the line below.}}
