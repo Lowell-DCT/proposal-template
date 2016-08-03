@@ -147,14 +147,6 @@
 
 \def\fullAuthorList{}
 
-\newcommand{\ConcatTwo}[2]{%
-  #1#2
-}
-
-\newcommand{\mycommand}[2]{%
-  \expandafter\gdef\csname #1\endcsname{Here is \expandafter{#2} printed.}%
-}
-
 % Principal investigator and co-investigator environments.
 
 \newcounter{numAuthors}
