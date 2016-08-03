@@ -22,9 +22,12 @@
 \def\revtex@ver{1.3.0}		% Version number of this file.
 \def\revtex@date{2016-07-08}	% Revision date.
 
+%\def\revtex@pageid{\xdef\@thefnmark{\null}
+%    \@footnotetext{Lowell Observatory DCT proposal\space
+%    \LaTeX\ macros v\revtex@ver \space (Released \revtex@date)}}
 \def\revtex@pageid{\xdef\@thefnmark{\null}
-    \@footnotetext{Lowell Observatory DCT proposal\space
-    \LaTeX\ macros v\revtex@ver \space (Released \revtex@date)}}
+   \footnotesize{Lowell Observatory DCT proposal\space
+   \LaTeX\ macros v\revtex@ver \space (Released \revtex@date)}}
 
 \def\deg{\ifmmode^\circ\else$^\circ$\fi}
 \def\micron{\mbox{$\mu$m}}% 
@@ -43,7 +46,10 @@
 }
 
 \let\ltx@enddoc=\enddocument
-\def\enddocument{\vfill\revtex@pageid\ltx@enddoc}
+\def\enddocument{\vfill
+\noindent\makebox[\linewidth]{\rlap{\scalebox{.1}{\tiny{startName Henry Roe endName}}}\rule{\textwidth}{1.5pt}}
+\newline
+\revtex@pageid\ltx@enddoc}
 
 \newdimen\prop@idboxwidth
 
