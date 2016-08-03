@@ -45,9 +45,29 @@
  }% 
 }
 
+\newcommand{\MDtag}{DCTPMD}  % short for DCTPROPMETADATA
+\newcommand\MDstart[1]{\MDtag-START-#1}
+\newcommand\MDend[1]{\MDtag-END-#1}
+
+%\def\MDPIname{\rlap{\scalebox{.05}{\tiny{\MDstart{PI_name} Henry Roe \MDend{PI_name}}}}}
+% TK: make fixed width font to avoid ff, fi and other latex special character outputs
+
+% \hiddenMetaDataItem takes two arguments:  tag_name, data
+%      e.g.:    PI_Name,  Jane Doe
+\newcommand{\hiddenMetaDataItem}[2]{\rlap{\scalebox{.05}{\texttt{\tiny{\MDstart{#1} #2 \MDend{#1}}}}}}
+
+\newcommand{\HMDILaTeXdate}{\hiddenMetaDataItem{LaTeXdate}{\today}}
+\newcommand{\HMDItitle}{\hiddenMetaDataItem{title}{\MDtitle}}
+\newcommand{\HMDIPIname}{\hiddenMetaDataItem{PIname}{\MDPIname}}
+\newcommand{\HMDIPIaffiliation}{\hiddenMetaDataItem{PIaffiliation}{\MDPIaffiliation}}
+\newcommand{\HMDIPIemail}{\hiddenMetaDataItem{PIemail}{\MDPIemail}}
+%\newcommand{\HMDI}{}
+% in following line the \hiddenMetaDataItem's need to have no spaces or returns between them to avoid messing up the width of the ruled line that hides the text.
+\newcommand{\hiddenMetaData}{\HMDILaTeXdate\HMDItitle\HMDIPIname\HMDIPIaffiliation\HMDIPIemail}
+
 \let\ltx@enddoc=\enddocument
 \def\enddocument{\vfill
-\noindent\makebox[\linewidth]{\rlap{\scalebox{.05}{\tiny{startName Henry Roe endName}}}\rule{\textwidth}{0.75pt}}
+\noindent\makebox[\linewidth]{\hiddenMetaData\rule{\textwidth}{0.75pt}}
 \newline
 \revtex@pageid\ltx@enddoc}
 
@@ -72,7 +92,9 @@
     \vspace*{.2in}
     \def\@tempa{#1}\ifx\@empty\@tempa
     \makebox[\textwidth]{\large{\bf Title:}}\par
-    \else{\large{\bf Title:} \@tempa}\fi}
+    \else{\large{\bf Title:} \@tempa}\fi
+    \edef\foo{#1}
+    \global\let\MDtitle\foo}
 
 
 % Observer identification.  These items are buffered so that they can be
@@ -152,6 +174,12 @@
 \newenvironment{PI}{\clear@obs\stepcounter{numAuthors}}{\def\obs@tag{{\bf PI:}}\prt@coiblock
    \edef\foo{\fullAuthorList PI: \obs@name \hfill \obs@affiliation \hfill Email: \obs@email \break}
    \global\let\fullAuthorList\foo
+   \edef\foo{\obs@name}
+   \global\let\MDPIname\foo
+   \edef\foo{\obs@affiliation}
+   \global\let\MDPIaffiliation\foo
+   \edef\foo{\obs@email}
+   \global\let\MDPIemail\foo
     }
     
     
