@@ -58,9 +58,12 @@
 \newcommand{\HMDIPIname}{\hiddenMetaDataItem{PIname}{\MDPIname}}
 \newcommand{\HMDIPIaffiliation}{\hiddenMetaDataItem{PIaffiliation}{\MDPIaffiliation}}
 \newcommand{\HMDIPIemail}{\hiddenMetaDataItem{PIemail}{\MDPIemail}}
-%\newcommand{\HMDI}{}
+%\newcommand{\HMDI}{\hiddenMetaDataItem{}{}}
+\newcommand{\HMDIthesis}{\hiddenMetaDataItem{thesis}{\MDthesis}}
+\newcommand{\HMDITCO}{\hiddenMetaDataItem{TCO}{\MDTCOflag\ \MDTCOtext}}
+
 % in following line the \hiddenMetaDataItem's need to have no spaces or returns between them to avoid messing up the width of the ruled line that hides the text.
-\newcommand{\hiddenMetaData}{\HMDILaTeXdate\HMDItitle\HMDIPIname\HMDIPIaffiliation\HMDIPIemail}
+\newcommand{\hiddenMetaData}{\HMDILaTeXdate\HMDItitle\HMDIPIname\HMDIPIaffiliation\HMDIPIemail\HMDIthesis\HMDITCO}
 
 \let\ltx@enddoc=\enddocument
 \def\enddocument{\vfill
@@ -220,7 +223,8 @@
     \def\@kptmpa{\rule{\textwidth}{0.4pt}}\fi
    \par\makebox[\textwidth][l]{\@kptmpa}}
 
-\def\thesis@head{This proposal is part of a Masters or PhD thesis.}
+\def\MDthesis{True}
+\def\thesis@head{This proposal is part of a Masters or PhD thesis. \def\MDthesis{False}}
 
 %\def\longterm@head{{\ques@font Are you requesting long-term status?
 % If `Y', please give details on the line below.}}
@@ -239,7 +243,9 @@
 
 \def\ObserversAndQualifications#1{\par$\bullet$\space\observers@head\par\chk@setblankthreelines{#1}}
 
-\def\TimeCriticalObs#1{\par$\bullet$\space\timecritical@head\par\chk@setblankoneline{#1}}
+\def\MDTCOflag{False}
+\def\MDTCOtext{}
+\def\TimeCriticalObs#1{\par$\bullet$\space\timecritical@head\par\chk@setblankoneline{#1}\def\MDTCOflag{True}\def\MDTCOtext{#1}}
 
 \def\unusabledates#1{\par$\bullet$\space\undates@head\par\chk@setblankthreelines{#1}}
 
