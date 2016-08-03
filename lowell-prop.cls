@@ -22,9 +22,6 @@
 \def\revtex@ver{1.3.0}		% Version number of this file.
 \def\revtex@date{2016-07-08}	% Revision date.
 
-%\def\revtex@pageid{\xdef\@thefnmark{\null}
-%    \@footnotetext{Lowell Observatory DCT proposal\space
-%    \LaTeX\ macros v\revtex@ver \space (Released \revtex@date)}}
 \def\revtex@pageid{\xdef\@thefnmark{\null}
    \footnotesize{Lowell Observatory DCT proposal\space
    \LaTeX\ macros v\revtex@ver \space (Released \revtex@date)}}
