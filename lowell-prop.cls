@@ -178,9 +178,8 @@
   \fi
   \edef\foo{\fullAuthorList CoI: \obs@name \hfill \obs@affiliation \hfill Email: \obs@email \break}
   \global\let\fullAuthorList\foo
-% \edef\foo{\HMDIallCoIinfo \MDstart{CoI\arabic{numAuthors}-name} \obs@name \MDend{CoI\arabic{numAuthors}-name} \MDstart{CoI\arabic{numAuthors}-affiliation} \obs@affiliation \MDend{CoI\arabic{numAuthors}-affiliation} \MDstart{CoI\arabic{numAuthors}-email} \obs@email \MDend{CoI\arabic{numAuthors}-email}}
- \edef\foo{\HMDIallCoIinfo CoI: \obs@name Affiliation: \obs@affiliation Email: \obs@email}
- \global\let\HMDIallCoIinfo\foo
+  \edef\foo{\HMDIallCoIinfo CoI: \obs@name Affiliation: \obs@affiliation Email: \obs@email}
+  \global\let\HMDIallCoIinfo\foo
   }
     
 \newenvironment{OverflowFromCoverPage}{
