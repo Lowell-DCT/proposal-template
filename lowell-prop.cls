@@ -45,6 +45,7 @@
 \newcommand{\MDtag}{DCTPMD}  % short for DCTPROPMETADATA
 \newcommand\MDstart[1]{\MDtag-START-#1}
 \newcommand\MDend[1]{\MDtag-END-#1}
+\def\HMDIallCoIinfo{}  % will build up the CoI metadata tags in this
 
 %\def\MDPIname{\rlap{\scalebox{.05}{\tiny{\MDstart{PI_name} Henry Roe \MDend{PI_name}}}}}
 % TK: make fixed width font to avoid ff, fi and other latex special character outputs
@@ -62,8 +63,11 @@
 \newcommand{\HMDIthesis}{\hiddenMetaDataItem{thesis}{\MDthesis}}
 \newcommand{\HMDITCO}{\hiddenMetaDataItem{TCO}{\MDTCOflag\ \MDTCOtext}}
 
+\newcommand{\HMDIPIinfo}{\HMDIPIname\HMDIPIaffiliation\HMDIPIemail}
+\newcommand{\HMDIallCoI}{\hiddenMetaDataItem{CoIs}{\HMDIallCoIinfo}}
+
 % in following line the \hiddenMetaDataItem's need to have no spaces or returns between them to avoid messing up the width of the ruled line that hides the text.
-\newcommand{\hiddenMetaData}{\HMDILaTeXdate\HMDItitle\HMDIPIname\HMDIPIaffiliation\HMDIPIemail\HMDIthesis\HMDITCO}
+\newcommand{\hiddenMetaData}{\HMDILaTeXdate\HMDItitle\HMDIPIinfo\HMDIallCoI\HMDIthesis\HMDITCO}
 
 \let\ltx@enddoc=\enddocument
 \def\enddocument{\vfill
@@ -107,8 +111,7 @@
 %    \phone{TELEPHONE NUMBER}
 %
 
-
-\def\name#1{\gdef\obs@name{#1}}
+\def\name#1{\gdef\obs@name{#1}\global\@namedef{obs\@Alph{\c@numAuthors}@name}{#1}}
 \def\affiliation#1{\gdef\obs@affiliation{#1}}
 \def\emailaddress#1{\gdef\obs@email{#1}}
 
@@ -167,18 +170,18 @@
    \edef\foo{\obs@email}
    \global\let\MDPIemail\foo
     }
-    
-    
-%\newenvironment{CoI}{\clear@obs\stepcounter{CoI}}{\ifnum\c@CoI>\@maxNumAuthors
-%    \prt@xcoiblock\else\vspace*{-5ex}\prt@coiblock\fi}
+
 \newenvironment{CoI}{\clear@obs\stepcounter{numAuthors}}{
-   \ifnum\c@numAuthors>\@maxNumAuthors
-   \else
-   \vspace*{-5ex}\prt@coiblock
-   \fi
-   \edef\foo{\fullAuthorList CoI: \obs@name \hfill \obs@affiliation \hfill Email: \obs@email \break}
-   \global\let\fullAuthorList\foo
-   }
+  \ifnum\c@numAuthors>\@maxNumAuthors
+  \else
+  \vspace*{-5ex}\prt@coiblock
+  \fi
+  \edef\foo{\fullAuthorList CoI: \obs@name \hfill \obs@affiliation \hfill Email: \obs@email \break}
+  \global\let\fullAuthorList\foo
+% \edef\foo{\HMDIallCoIinfo \MDstart{CoI\arabic{numAuthors}-name} \obs@name \MDend{CoI\arabic{numAuthors}-name} \MDstart{CoI\arabic{numAuthors}-affiliation} \obs@affiliation \MDend{CoI\arabic{numAuthors}-affiliation} \MDstart{CoI\arabic{numAuthors}-email} \obs@email \MDend{CoI\arabic{numAuthors}-email}}
+ \edef\foo{\HMDIallCoIinfo CoI: \obs@name Affiliation: \obs@affiliation Email: \obs@email}
+ \global\let\HMDIallCoIinfo\foo
+  }
     
 \newenvironment{OverflowFromCoverPage}{
     \ifnum\c@numAuthors>\@maxNumAuthors
