@@ -56,7 +56,6 @@
 \newcommand{\HMDIPIname}{\hiddenMetaDataItem{PIname}{\MDPIname}}
 \newcommand{\HMDIPIaffiliation}{\hiddenMetaDataItem{PIaffiliation}{\MDPIaffiliation}}
 \newcommand{\HMDIPIemail}{\hiddenMetaDataItem{PIemail}{\MDPIemail}}
-%\newcommand{\HMDI}{\hiddenMetaDataItem{}{}}
 \newcommand{\HMDIthesis}{\hiddenMetaDataItem{thesis}{\MDthesis}}
 \newcommand{\HMDITCO}{\hiddenMetaDataItem{TCO}{\MDTCOflag\ \MDTCOtext}}
 
@@ -102,10 +101,8 @@
 % information.
 %
 %    \name{OBSERVER NAME}
-%    \affil{AFFILIATION}
-%    \address{POSTAL ADDRESS}
+%    \affiliation{AFFILIATION}
 %    \emailaddress{EMAIL ADDRESS}
-%    \phone{TELEPHONE NUMBER}
 %
 
 \def\name#1{\gdef\obs@name{#1}\global\@namedef{obs\@Alph{\c@numAuthors}@name}{#1}}
@@ -120,33 +117,11 @@
 \def\yn@rule{\rule{0.3in}{0.4pt}}
 \newcount\@maxNumAuthors \@maxNumAuthors=5
 
-%\def\prt@coiblock{\begin{tabbing}
-%    \makebox[.25\textwidth]{\null}\=\makebox[.25\textwidth]{\null}\=
-%    \makebox[.25\textwidth]{\null}\=\kill
-%    \hbox to.25\textwidth{\obs@tag\space%
-%        \ifx\@empty\obs@name\hrulefill\space\else\obs@name\hfill\fi}%
-%    \hbox to.42\textwidth{Affiliation:\space%
-%       \ifx\@empty\obs@affiliation@rule\else\obs@affiliation\fi\hfill}%
-%    \hbox to.3\textwidth{Email:\space%
-%        \ifx\@empty\obs@email \hrulefill\else\obs@email\hfill\fi}
-%%\\[.2ex]
-%    \end{tabbing}}
-
 \def\prt@coiblock{\begin{tabbing}
     \makebox[.25\textwidth]{\null}\=\makebox[.25\textwidth]{\null}\=
     \makebox[.25\textwidth]{\null}\=\kill
     \hbox to1\textwidth{\obs@tag\space\obs@name\hfill\obs@affiliation\space(\obs@email)}
-    
-    
-%    \hbox to.7\textwidth{\obs@tag\space%
-%        \ifx\@empty\obs@name\hrulefill\space\else\obs@name\fi\space(\obs@affiliation)\hfill}%
-%%    \hbox to.42\textwidth{Affiliation:\space%
-%%       \ifx\@empty\obs@affiliation@rule\else\obs@affiliation\fi\hfill}%
-%    \hbox to.3\textwidth{Email:\space%
-%        \ifx\@empty\obs@email \hrulefill\else\obs@email\hfill\fi}
-%%\\[.2ex]
     \end{tabbing}}
-
 
 \def\fullAuthorList{}
 
@@ -154,7 +129,6 @@
 
 \newcounter{numAuthors}
 \def\obs@tag{{\bf CoI:}}
-
 
 
 \newenvironment{PI}{\clear@obs\stepcounter{numAuthors}}{\def\obs@tag{{\bf PI:}}\prt@coiblock
@@ -198,14 +172,6 @@
     \@ifundefined{needoverflowpage}{}{\newpage}
 }
 
-% Questions for first page.
-%
-%   \thesis{Y or N}
-%   \longterm{Y or N}
-%   \longtermdetails{BRIEF DETAILS}
-%   \queue{Y or N}
-%   \unusabledates{BRIEF DETAILS}
-
 \def\chk@setblank#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
     \def\@kptmpa{\yn@rule}\fi\mbox{\@kptmpa}}
 
@@ -217,23 +183,18 @@
     \def\@kptmpa{\rule{\textwidth}{0.4pt}}\fi
    \par\makebox[\textwidth][l]{\@kptmpa}}
 
+% Questions for first page.
+%
+%   \thesis{Y or N}
+
 \def\MDthesis{True}
 \def\thesis@head{This proposal is part of a Masters or PhD thesis. \def\MDthesis{False}}
 
-%\def\longterm@head{{\ques@font Are you requesting long-term status?
-% If `Y', please give details on the line below.}}
-%  \def\queue@head{{\ques@font Would you like these observations conducted
-%  as `service' observing?}}
 \def\observers@head{{\ques@font Observers:}}
 \def\timecritical@head{{\ques@font Time Critical Observation (TCO) status requested for times/dates:}}
 \def\undates@head{{\ques@font Other scheduling issues, such as dates (local MST) you cannot use for non-astronomical reasons}}
 
 \def\thesis#1{\par$\bullet$\space\thesis@head}
-\def\longterm#1{\par$\bullet$\space\longterm@head\quad\chk@setblank{#1}
-    \gdef\@longterm{#1}}
-\def\longtermdetails#1{\def\@tempa{N}\ifx\@longterm\@tempa\relax\else
-    \chk@setblankline{#1}\fi}
-\def\queue#1{\par$\bullet$\space\queue@head\quad\chk@setblank{#1}}
 
 \def\ObserversAndQualifications#1{\par$\bullet$\space\observers@head\par\chk@setblankthreelines{#1}}
 
