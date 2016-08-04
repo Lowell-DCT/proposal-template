@@ -43,8 +43,8 @@
 }
 
 \newcommand{\MDtag}{DCTPMD}  % short for DCTPROPMETADATA
-\newcommand\MDstart[1]{\MDtag-START-#1}
-\newcommand\MDend[1]{\MDtag-END-#1}
+\newcommand\MDstart[1]{\MDtag-#1-START}
+\newcommand\MDend[1]{\MDtag-#1-END}
 \def\HMDIallCoIinfo{}  % will build up the CoI metadata tags in this
 
 % \hiddenMetaDataItem takes two arguments:  tag_name, data
@@ -62,7 +62,7 @@
 \newcommand{\HMDIPIinfo}{\HMDIPIname\HMDIPIaffiliation\HMDIPIemail}
 \newcommand{\HMDIallCoI}{\hiddenMetaDataItem{CoIs}{\HMDIallCoIinfo}}
 
-% if need to edit these observing run metadata lines, delete all but first, edit and then copy-and-paste and do a search-and-replace to get back to having obsA,obsB,obsC...obsI
+% if need to edit these observing run metadata lines, delete all but first, edit and then copy-and-paste and do a search-and-replace to get back to having obsA,obsB,obsC...I
 \newcommand{\HMDIobsA}{\@ifundefined{obsA@inst}{}{\hiddenMetaDataItem{RUNobsA}{\hiddenMetaDataItem{INSTRUMENT}{\obsA@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsA@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsA@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsA@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsA@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsA@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsA@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsA@wholenights}}}}
 \newcommand{\HMDIobsB}{\@ifundefined{obsB@inst}{}{\hiddenMetaDataItem{RUNobsB}{\hiddenMetaDataItem{INSTRUMENT}{\obsB@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsB@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsB@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsB@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsB@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsB@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsB@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsB@wholenights}}}}
 \newcommand{\HMDIobsC}{\@ifundefined{obsC@inst}{}{\hiddenMetaDataItem{RUNobsC}{\hiddenMetaDataItem{INSTRUMENT}{\obsC@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsC@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsC@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsC@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsC@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsC@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsC@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsC@wholenights}}}}
