@@ -188,7 +188,6 @@
     \fi
 
     \@ifundefined{obsD@inst}{}{\def\needoverflowpage{True}}
-    \@ifundefined{overflowobsruninfo}{}{\def\needoverflowpage{True}}
 
     \@ifundefined{needoverflowpage}{}{\newpage}
 
@@ -198,10 +197,6 @@
     \fi 
 
     \@ifundefined{obsD@inst}{}{\prt@overflowobsruns}
-
-    \@ifundefined{overflowobsruninfo}{}{
-    \overflowobsrun@head
-    \par\overflowobsruninfo}
 
     \@ifundefined{needoverflowpage}{}{\newpage}
 }
@@ -386,10 +381,9 @@
     \end{tabular*}
     \end{center}}
 
-\def\MoreObsrunInfo#1{\global\def\overflowobsruninfo{#1}}
-
 \def\overflowobsrun@head{$\bullet$\space{\ques@font Additional requests regarding dates, instruments, cadence of observations, etc for observing runs} \hfill}
 
+\def\MoreObsrunInfo#1{\overflowobsrun@head\par#1}
 
 % The scientific justification and the proposed observing program are
 % typeset (printed) as they are specified by the author.  Specific

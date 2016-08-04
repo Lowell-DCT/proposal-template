@@ -78,26 +78,14 @@
 
 % Investigator's (PI and CoI) information blocks.
 
-% Please give the investigator's name, and email address. (The email address of
-% the account used to send in the form will be used if you don't fill this in.)
-% You must also indicate whether the investigator is a graduate student by
-% putting a Y or an N inside the \gradstudent{} curly braces.
+% Please give the investigator's name, and email address. 
 %
 % Each member of the proposal team is identified with several bits of
 % information.
 %
 %    \name{OBSERVER NAME}
-%    \affil{AFFILIATION}
-%    \address{POSTAL ADDRESS}
+%    \affiliation{AFFILIATION}
 %    \emailaddress{EMAIL ADDRESS}
-%    \phone{TELEPHONE NUMBER}
-%    \fax{FAX NUMBER}
-%    \gradstudent{Y or N}
-%    \undergradstudent{Y or N}
-%
-% Please note that the fax number does not print on the form at this
-% time; this is intentional.  We can get your fax number from the
-% electronic file if we really have to.
 %
 % DO NOT remove the \begin{PI} and \end{PI} or the \begin{CoI} and
 % \end{CoI} lines.
@@ -170,10 +158,10 @@
 % \small, e.g. \instrument{\small Lengthy description of instrument}
 %
 %   \telescope{}	For example, \telescope{DCT}
-%   \instrument{}	For example, \instrument{LMI: UBVRI, H\textalpha-on,H\textalpha-off; 
-%                                                OptiNIRSpec Spectrograph}
-%   \numfirsthalfnights{} For exmaple, \numfirsthalfnights{3}
-%   \numsecondhalfnights{} For exmaple, \numsecondhalfnights{3}
+%   \instrument{}	For example, 
+%         \instrument{LMI: UBVRI, H\textalpha-on,H\textalpha-off; NIHTS}
+%   \numfirsthalfnights{} For example, \numfirsthalfnights{3}
+%   \numsecondhalfnights{} For example, \numsecondhalfnights{3}
 %   \moonbrightness{}	For example, \moonbrightness{D}
 %   \optimaldates{}	For example, \optimaldates{Sept--Nov}
 %   \acceptabledates{}	For example, \acceptabledates{Sept -- mid-Dec}
@@ -260,9 +248,6 @@
 %\totalhours{}
 %\end{ToOrun}
 
-% You may supply more obsrun blocks. Three will be displayed on the cover page
-% and the remainder will be placed on an additional overflow cover page.
-
 % do not delete or comment out the following \printCoverPageObsRuns{} block
 \printCoverPageObsRuns{}
 
@@ -287,21 +272,19 @@ Jane X.\ Doe has previously used LMI \& will do the ToO observations.}
 
 % You may also offer additional specifics of requests regarding dates, instruments,
 % cadence of observations, etc etc. in the following \MoreObsrunInfo{} block.
-% Leave this next line commented out unless you are using it.
+% Include any other scheduling comments, such as dates (local MST) you cannot use 
+% for non-astronomical reasons. If a longer explanation is needed,  
+% summarize the request here and provide more details in the Observing Request
+% Details section later.
+% If you are not using \MoreObsrunInfo, you can comment it out.
 
 %%%
-%\MoreObsrunInfo{Place any additional info regarding dates, instruments, cadence of observations, etc. here. Will be placed on overflow cover page, so can be longer than a few lines.}
+\MoreObsrunInfo{Place any additional info regarding dates, instruments, 
+cadence of observations, etc. here., e.g.\ 
+January 24-26, attending conference. \newline
+If a longer explanation is needed, summarize the request here and provide 
+more details in the Observing Request Details section.}
 
-% Other scheduling comments, such as dates (local MST) you cannot use 
-% for non-astronomical reasons, go in \unusabledates
-% If there are dates that you cannot use for non-astronomical reasons,
-% please give the dates by filling in the curly braces in \unusabledates{}.
-% Please explain briefly; \unusabledates is limited to a few lines.
-
-%%%
-\unusabledates{
-January 24-26, attending conference  Donec euismod egestas ligula ut semper. Pellentesque ultricies metus sit amet laoreet dictum. Pellentesque efficitur leo id orci condimentum lacinia. Vestibulum egestas fermentum dictum. Vestibulum velit lorem, luctus nec sodales eget, rutrum id lorem. git status
-}
 
 % Don't edit or comment out the following line containing \OverflowFromCoverPage{}
 % This line will create an additional page if needed to list more CoIs or more observing runs
