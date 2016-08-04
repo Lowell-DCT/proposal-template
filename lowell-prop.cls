@@ -409,6 +409,7 @@
     \par}}
 
 \def\removeScienceJustificationInstructions{\def\justif@head{{\instruct@font \hspace{0.1in} \par}}}
+\def\removeObservingRequestInstructions{\def\feas@head{{\instruct@font \hspace{0.1in} \par}}}
 
 \def\scienceJustification{\newpage\propsection{\fbox{Scientific Justification}}
     \justif@head}
