@@ -19,7 +19,7 @@
 
 \def\prop@head{Lowell Observatory\\\@tele\ Observing Proposal}
 
-\def\revtex@ver{1.3.0}		% Version number of this file.
+\def\revtex@ver{1.4.0-alpha.1}		% Version number of this file.
 \def\revtex@date{2016-07-08}	% Revision date.
 
 \def\revtex@pageid{\xdef\@thefnmark{\null}
