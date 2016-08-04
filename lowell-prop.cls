@@ -47,9 +47,6 @@
 \newcommand\MDend[1]{\MDtag-END-#1}
 \def\HMDIallCoIinfo{}  % will build up the CoI metadata tags in this
 
-%\def\MDPIname{\rlap{\scalebox{.05}{\tiny{\MDstart{PI_name} Henry Roe \MDend{PI_name}}}}}
-% TK: make fixed width font to avoid ff, fi and other latex special character outputs
-
 % \hiddenMetaDataItem takes two arguments:  tag_name, data
 %      e.g.:    PI_Name,  Jane Doe
 \newcommand{\hiddenMetaDataItem}[2]{\rlap{\scalebox{.05}{\texttt{\tiny{\MDstart{#1} #2 \MDend{#1}}}}}}
