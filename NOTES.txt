@@ -9,6 +9,6 @@ Tasks to release new version:
     - `\def\revtex@ver{1.2.1}		% Version number of this file.`
     - `\def\revtex@date{2016-04-18}	% Revision date.`
 - be sure all files staged/committed to git
-- tag with version number
+- tag with version number  (e.g. v1.4.0-alpha.1  - NOTE starts with a "v"!)
 - push to github
 - publish tag to origin in tower
