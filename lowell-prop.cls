@@ -165,7 +165,7 @@
   \fi
   \edef\foo{\fullAuthorList CoI: \obs@name \hfill \obs@affiliation \hfill Email: \obs@email \break}
   \global\let\fullAuthorList\foo
-  \edef\foo{\HMDIallCoIinfo CoI: \obs@name\ Affiliation: \obs@affiliation\ Email: \obs@email\ }
+  \edef\foo{\HMDIallCoIinfo \MDstart{CoI\thenumAuthors} \MDstart{name} \obs@name\ \MDend{name} \MDstart{affiliation} \obs@affiliation\ \MDend{affiliation} \MDstart{Email} \obs@email\ \MDend{Email} \MDend{CoI\thenumAuthors}}
   \global\let\HMDIallCoIinfo\foo
   }
     
