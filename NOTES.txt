@@ -12,3 +12,5 @@ Tasks to release new version:
 - tag with version number  (e.g. v1.4.0-alpha.1  - NOTE starts with a "v"!)
 - push to github (push master to origin in tower)
 - publish tag to origin in tower
+- push overall project to origin/master in tower
+
