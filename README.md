@@ -33,5 +33,8 @@ Developed in early 2016 by Henry Roe based on similar templates in use at KPNO/N
 - created a hidden metadata section that allows even more proposal details to be captured automatically & more reliably from submitted proposals into the scheduling system
 - added `example_pull_metadata.py` showing a simple example of extracting the new metadata
 
+2017-01-03 (1.5.0): Finalized updates for 2017Q2
+- moved hidden metadata section to first cover page, so that metadata in the PDF is still available even if user submits only the cover page
+- clarified in instructions that users can assemble their own PDF using the cover page + science justification pages from a different source (e.g. cover page must be from the LaTeX template, but a user could write their Science Justification in Word and export it to PDF and then glue the whole thing together into a single PDF.)
 
 Questions or comments:  email Henry Roe (hroe@lowell.edu or hroe@hroe.me).
