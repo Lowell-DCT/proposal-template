@@ -37,4 +37,8 @@ Developed in early 2016 by Henry Roe based on similar templates in use at KPNO/N
 - moved hidden metadata section to first cover page, so that metadata in the PDF is still available even if user submits only the cover page
 - clarified in instructions that users can assemble their own PDF using the cover page + science justification pages from a different source (e.g. cover page must be from the LaTeX template, but a user could write their Science Justification in Word and export it to PDF and then glue the whole thing together into a single PDF.)
 
+2017-02-21 (1.5.1): Two bug fixes
+- the version number and date and metadata were not always printing on the primary cover page - FIXED
+- the body text in the Scientific Justification and Observing Request Details were in most cases printing at very small font size - FIXED
+
 Questions or comments:  email Henry Roe (hroe@lowell.edu or hroe@hroe.me).
