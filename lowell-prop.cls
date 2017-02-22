@@ -23,7 +23,7 @@
 \def\revtex@date{2017-01-03}	% Revision date.
 
 \def\revtex@pageid{\xdef\@thefnmark{\null}
-   \footnotesize{Lowell Observatory DCT proposal\space
+   {\footnotesize Lowell Observatory DCT proposal\space
    \LaTeX\ macros v\revtex@ver \space (Released \revtex@date)}}
 
 \def\deg{\ifmmode^\circ\else$^\circ$\fi}
