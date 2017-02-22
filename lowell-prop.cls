@@ -358,7 +358,9 @@
 
 \def\overflowobsrun@head{$\bullet$\space{\ques@font Additional requests regarding dates, instruments, cadence of observations, etc for observing runs} \hfill}
 
-\def\MoreObsrunInfo#1{\overflowobsrun@head\par#1\vfill
+\def\MoreObsrunInfo#1{\overflowobsrun@head\par#1}
+
+\def\EndOfPrimaryCoverPage{\vfill
 \noindent\makebox[\linewidth]{\hiddenMetaData\rule{\textwidth}{0.75pt}}
 \newline
 \revtex@pageid}
