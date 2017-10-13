@@ -1,5 +1,5 @@
 % lowell-prop.tex - Lowell Observatory DCT proposal template 
-%   Last update 2017-02-21 by hroe@lowell.edu
+%   Last update 2017-10-13 by sel@lowell.edu
 
 % General Instructions:
 %  
@@ -31,6 +31,7 @@
 %
 %   Lowell Observatory Users:
 %      - Abide by the length limits.
+%      - Please do not change the font size.
 %      - Fill out the cover sheet completely.
 %      - Keep in mind that you are writing for a non-specialist audience.
 %      - Proposal deadline is listed in the Call for Proposals.
@@ -47,15 +48,15 @@
 % Proposer Information for DCT is available at:
 %     https://jumar.lowell.edu/confluence/display/DCTIC/DCT+Proposal+Information
 % 
-% DCT is scheduled on calendar quarters:
-%     Q1: January 1 - March 31
-%     Q2: April 1 - June 30
-%     Q3: July 1 - September 30
-%     Q4: October 1 - December 31
-% The deadline for Lowell proposals and for partner institutions to submit their
-% ranked requests is noon MST on the 1st of the month (or next business day if 
-% the 1st is a holiday or weekend) two months ahead of the start of the quarter.  
-%     e.g. the deadline for 2017Q1 is 1-Nov-2016 Noon MST
+% DCT is scheduled on calendar semesters:
+%     A: January 1 - June 30
+%     B: July 1 - December 31
+%
+% The deadline for Lowell proposals and for partner institutions to
+% submit their ranked requests is noon MST on the 1st of the month (or
+% next business day if the 1st is a holiday or weekend) two months
+% ahead of the start of the semester.
+%     e.g. the deadline for 2018A is 1-Nov-2017 Noon MST
 % 
 %   Questions/comments:  tac@lowell.edu
 
@@ -64,18 +65,21 @@
 % Uncomment if using figures:
 \usepackage{graphicx}
 
-% Uncomment to provide options to siunitx for typesetting units (the class file
-% already loads this package and provides the units in http://goo.gl/XzoK8H
+% Uncomment to provide options to siunitx for typesetting units (the
+% class file already loads this package and provides the units in
+% http://goo.gl/XzoK8H
 % \usepackage[custom-options]{siunitx}
-% *Do not* typeset microns as $\mu$m unless you are also expressing kilometers as $k$m.
+% *Do not* typeset microns as $\mu$m unless you are also expressing
+% *kilometers as $k$m.
 
 % Use textgreek to use greek letters which are not math (such as in Hα)
 %\usepackage{textgreek}
 
 \begin{document}
 
-% Note that currently this form is *only* used for DCT, but the following line 
-% is here for future compatibility if other facilities are added.
+% Note that currently this form is *only* used for DCT, but the
+% following line is here for future compatibility if other facilities
+% are added.
 \telescopes{DCT}
 
 % Give a descriptive title for the proposal in the \title command.
@@ -85,7 +89,9 @@
 % yourself, do so with a `\\' command at the appropriate point in
 % the title text.
 %%%
-\title{Mysteries of the universe solved: A superbly wrong title for a stupendously strong proposal for an absurdly large amount of telescope time}
+\title{Mysteries of the universe solved: A superbly wrong title for a
+  stupendously strong proposal for an absurdly large amount of
+  telescope time}
 
 % Investigator's (PI and CoI) information blocks.
 
@@ -170,13 +176,34 @@
 %
 %   \telescope{}	For example, \telescope{DCT}
 %   \instrument{}	For example, 
-%         \instrument{LMI: UBVRI, H\textalpha-on,H\textalpha-off; NIHTS}
-%   \numfirsthalfnights{} For example, \numfirsthalfnights{3}
-%   \numsecondhalfnights{} For example, \numsecondhalfnights{3}
+%         \instrument{LMI: UBVRI, H\textalpha-on,H\textalpha-off;
+%         NIHTS}
+%   Most filter combinations should be obvious. However, if you want 
+%   Johnson-Cousins V and R, then enter V,R, NOT VR. The latter will
+%   get interpretted as the V+R filter.
+%
+% There are three time items that are related:
+%   \totaltimerequest{} - this is the total time requested in nights
+%     for the run, e.g. \totaltimerequest{2.5}
+%   \numfirsthalfnights{} - this is the preference for scheduling this
+%     amount of the run during this half of the night
+%     For example, \numfirsthalfnights{3}
+%   \numsecondhalfnights{} - this is the preference for scheduling this
+%     amount of the run during this half of the night
+%     For example, \numsecondhalfnights{2}
+%   If you have 0.75 nights, and you ask for the time in quarter nights,
+%    and you want 1 1/4 during the first half and 2 1/4s during the
+%    second half, that would be indicated as:
+%      \totaltimerequest{0.75}
+%      \numfirsthalfnights{1}
+%      \numsecondhalfnights{2}
+%      \nightunitrequired{Q}
+%
 %   \moonbrightness{}	For example, \moonbrightness{D}
 %   \optimaldates{}	For example, \optimaldates{Sept--Nov}
 %   \acceptabledates{}	For example, \acceptabledates{Sept -- mid-Dec}
-%   \remoteobserving{}  Either Y or N, if remote observing support is requested.  
+%   \remoteobserving{}  Either Y or N, if remote observing support is
+%                       requested.   
 %
 % \moonbrightness should specify the maximum acceptable mean moon brightness
 % using the following codes:
@@ -191,14 +218,17 @@
 % \acceptabledates should give the range of ACCEPTABLE dates (i.e., you
 % would not accept time outside those limits).
 %
-% \wholenightsrequired is Y or N. (or "-" for ToO). In general scheduling will 
-% attempt to schedule as whole nights if possible. However, programs may be
-% split to half-nights as needed to make the schedule work. If there is a 
-% reason you cannot accept half-nights, then enter "Y" and justify in your 
-% Observing Request Details section.
+% \nightunitrequired is W, H, Q for Whole, Half, or Quarter
+% respectively. (or "-" for ToO). In general scheduling will attempt
+% to schedule as whole nights if possible. However, programs may be
+% split to half-nights as needed to make the schedule work. Quarter
+% nights are an option you can request, but half nights will be the
+% default scheduling unit unless otherwise requested. If there
+% is a reason you cannot accept half-nights, then enter "W" or "Q" and
+% justify in your Observing Request Details section.
 %
-% When requesting specific nights, please specify them in local MST & explicitly
-% state what you are are requesting.  
+% When requesting specific nights, please specify them in local MST &
+% explicitly state what you are are requesting.
 %   e.g.
 % "We are requesting the second half of 27-Feb (MST)." 
 %   -> is requesting the 2nd half of the night that started on 27-Feb (MST)
@@ -207,13 +237,13 @@
 %  between 10:15 and 11:45 on 28-Feb (UT), therefore we are requesting the
 %  second half of 27-Feb (MST).")
 %
-% For Target of Opportunity (ToO) program, use the alternate \begin{ToOrun} block.
-% Additional details of the requested ToO observations should be placed in
-% Observing Request Details.
+% For Target of Opportunity (ToO) program, use the
+% alternate \begin{ToOrun} block.  Additional details of the requested
+% ToO observations should be placed in Observing Request Details.
 %
-% The style file will accomodate up to 10 separate observing runs, of which the 
-% the first 3 will be shown on the primary cover page and the remainder will be
-% shown on the overflow coverpage (if needed).
+% The style file will accomodate up to 10 separate observing runs, of
+% which the the first 3 will be shown on the primary cover page and
+% the remainder will be shown on the overflow coverpage (if needed).
 
 % DO NOT remove the \begin{obsrun} and \end{obsrun} blocks
 
@@ -221,13 +251,14 @@
 \begin{obsrun}
 \telescope{DCT}
 \instrument{LMI: UBVRI}
+\totaltimerequest{2.5}
 \numfirsthalfnights{3}
 \numsecondhalfnights{2}
 \moonbrightness{D}
 \optimaldates{Feb -- Mar}
 \acceptabledates{Jan -- Mar, May-Jun}
 \remoteobserving{N}
-\wholenightsrequired{N}
+\nightunitrequired{H}
 \end{obsrun}
 
 \begin{ToOrun}
@@ -242,13 +273,14 @@
 %\begin{obsrun}
 %\telescope{DCT}
 %\instrument{}
+%\totaltimerequest{}
 %\numfirsthalfnights{}
 %\numsecondhalfnights{}
 %\moonbrightness{}
 %\optimaldates{}
 %\acceptabledates{}
 %\remoteobserving{}
-%\wholenightsrequired{}
+%\nightunitrequired{}
 %\end{obsrun}
 
 %\begin{ToOrun}
@@ -268,12 +300,14 @@
 % with the scheduled instrument to be qualified.
 
 %%%
-\ObserversAndQualifications{Jane Z.\ Doe will do the 29-Jan (MST) observing run \& is a new observer.  \newline
-Jane X.\ Doe has previously used LMI \& will do the ToO observations.}
+\ObserversAndQualifications{Jane Z.\ Doe will do the 29-Jan (MST)
+  observing run \& is a new observer.  \newline Jane X.\ Doe has
+  previously used LMI \& will do the ToO observations.}
 
-% If you are requesting Time Critical Observation (TCO) status for some aspect
-% of your observations, please uncomment the following \TimeCriticalObs{} block
-% and briefly summarize the times/dates of the TCO request in one line or less, 
+% If you are requesting Time Critical Observation (TCO) status for
+% some aspect of your observations, please uncomment the following
+% \TimeCriticalObs{} block and briefly summarize the times/dates of
+% the TCO request in one line or less,
 % e.g.:  "TCO status requested for night of 29-Jan (MST)."  
 % Additional justification for the TCO request can be given in the Observing 
 % Request Details section.
@@ -281,12 +315,13 @@ Jane X.\ Doe has previously used LMI \& will do the ToO observations.}
 %%%
 %\TimeCriticalObs{TCO status requested for night of 29-Jan (MST).}
 
-% You may also offer additional specifics of requests regarding dates, instruments,
-% cadence of observations, etc etc. in the following \MoreObsrunInfo{} block.
-% Include any other scheduling comments, such as dates (local MST) you cannot use 
-% for non-astronomical reasons. If a longer explanation is needed,  
-% summarize the request here and provide more details in the Observing Request
-% Details section later.
+% You may also offer additional specifics of requests regarding dates,
+% instruments, cadence of observations, etc etc. in the following
+% \MoreObsrunInfo{} block.  Include any other scheduling comments,
+% such as dates (local MST) you cannot use for non-astronomical
+% reasons. If a longer explanation is needed, summarize the request
+% here and provide more details in the Observing Request Details
+% section later.
 % If you are not using \MoreObsrunInfo, you can comment it out.
 
 %%%
@@ -297,9 +332,10 @@ If a longer explanation is needed, summarize the request here and provide
 more details in the Observing Request Details section.}
 
 
-% Don't edit or comment out the following 2 lines containing \EndOfPrimaryCoverPage{}
-% and \OverflowFromCoverPage{}
-% This line will create an additional page if needed to list more CoIs or more observing runs
+% DON'T EDIT OR COMMENT OUT THE FOLLOWING 2 LINES
+% containing \EndOfPrimaryCoverPage{} and \OverflowFromCoverPage{}
+% This line will create an additional page if needed to list more CoIs
+% or more observing runs
 \EndOfPrimaryCoverPage{}
 \OverflowFromCoverPage{}
 
@@ -315,16 +351,19 @@ more details in the Observing Request Details section.}
 
 % **Lowell proposers:** The Science Justification section is limited to 
 % one page of text and figure(s).
-% References may appear on a second page. 
-% You may use your 1 page of Science Justification as you wish, but do not alter 
-% default line spacing, margins, font size. 
-% Most proposals should consist of no more than ~300 words of text and a figure. 
-% Figures should be legible and not too small. Write for a general scientific audience.
+% - References may appear on a second page. 
+% - You may use your 1 page of Science Justification as you wish, but do
+%   not alter default line spacing, margins, font size.
+% - Most proposals should consist of no more than ~300 words of text and
+%   a figure.  
+% - Figures should be legible and not too small. Write for a general
+%   scientific audience.
 
-% **Proposers from DCT partner institutions:** Check with your home institution
-% regarding Science Justification page limits and any other requirements. Some 
-% partner institutions do not require a Science Justification & others have established
-% a longer limit than the default 1 page.
+% **Proposers from DCT partner institutions:** Check with your home
+% institution regarding Science Justification page limits and any
+% other requirements. Some partner institutions do not require a
+% Science Justification & others have established a longer limit than
+% the default 1 page.
 
 % In order to include a plot, you should use the LaTeX "figure"
 % environment with the graphicx package. For example:
@@ -334,28 +373,58 @@ more details in the Observing Request Details section.}
 %     \caption{Sample Figure showing important results.\label{fig:name}
 % \end{figure}
 
-% If you are absolutely convinced you understand and are obeying the page limit of the 
-% Scientific Justification section, you may uncomment the following flag, which will 
-% remove the instructions for this section from the PDF and buy you a little more space.
-% But, if you do that *and* break the page limit, a pox will be cast upon you.
-% And, if you break the page limit and leave the instructions in, then you're just not
-% paying attention.
+% If you are absolutely convinced you understand and are obeying the
+% page limit of the Scientific Justification section, you may
+% uncomment the following flag, which will remove the instructions for
+% this section from the PDF and buy you a little more space.  But, if
+% you do that *and* break the page limit, a pox will be cast upon you.
+% And, if you break the page limit and leave the instructions in, then
+% you're just not paying attention.
+
 % \removeScienceJustificationInstructions
 
 %%%
 \scienceJustification
 
 
-Lorem ipsum dolor sit amet 10$\fdg$3, not 9$\farcm$1 nor 22$\farcs$32, consectetur adipiscing elit. Etiam vitae felis lectus 2.12~$\micron$. Nulla eu malesuada arcu. Aliquam a arcu in orci semper venenatis sed non purus. Pellentesque tempus nibh dolor. Donec eros lorem, gravida quis euismod eu, tempus sit amet neque. Maecenas tempus ex fermentum purus maximus porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed nec metus suscipit metus ultricies fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent id viverra eros.
+Lorem ipsum dolor sit amet 10$\fdg$3, not 9$\farcm$1 nor 22$\farcs$32,
+consectetur adipiscing elit. Etiam vitae felis lectus
+2.12~$\micron$. Nulla eu malesuada arcu. Aliquam a arcu in orci semper
+venenatis sed non purus. Pellentesque tempus nibh dolor. Donec eros
+lorem, gravida quis euismod eu, tempus sit amet neque. Maecenas tempus
+ex fermentum purus maximus porttitor. Class aptent taciti sociosqu ad
+litora torquent per conubia nostra, per inceptos himenaeos. Sed nec
+metus suscipit metus ultricies fringilla. Pellentesque habitant morbi
+tristique senectus et netus et malesuada fames ac turpis
+egestas. Praesent id viverra eros.
 
-Donec euismod egestas ligula ut semper. Pellentesque ultricies metus sit amet laoreet dictum. Pellentesque efficitur leo id orci condimentum lacinia. Vestibulum egestas fermentum dictum. Vestibulum velit lorem, luctus nec sodales eget, rutrum id lorem. In convallis posuere ligula, ac interdum tortor lacinia sit amet. Aenean pulvinar rutrum velit, quis facilisis magna porta a. Praesent et est ac massa posuere lobortis. Proin hendrerit eros ac tincidunt luctus. Maecenas mollis dolor velit, ut iaculis sem efficitur eget. Duis mattis mollis maximus. In vulputate blandit nisl quis pulvinar. Morbi imperdiet ultrices sodales. Nam gravida varius urna, quis dignissim mi dignissim eu. Etiam justo mi, facilisis ac eleifend sagittis, euismod id arcu. Praesent elementum finibus diam, vitae gravida risus lacinia et.
+Donec euismod egestas ligula ut semper. Pellentesque ultricies metus
+sit amet laoreet dictum. Pellentesque efficitur leo id orci
+condimentum lacinia. Vestibulum egestas fermentum dictum. Vestibulum
+velit lorem, luctus nec sodales eget, rutrum id lorem. In convallis
+posuere ligula, ac interdum tortor lacinia sit amet. Aenean pulvinar
+rutrum velit, quis facilisis magna porta a. Praesent et est ac massa
+posuere lobortis. Proin hendrerit eros ac tincidunt luctus. Maecenas
+mollis dolor velit, ut iaculis sem efficitur eget. Duis mattis mollis
+maximus. In vulputate blandit nisl quis pulvinar. Morbi imperdiet
+ultrices sodales. Nam gravida varius urna, quis dignissim mi dignissim
+eu. Etiam justo mi, facilisis ac eleifend sagittis, euismod id
+arcu. Praesent elementum finibus diam, vitae gravida risus lacinia et.
 
-Morbi mattis non purus at pulvinar. Nullam sollicitudin pretium mi id interdum. Sed eget neque diam. Nam nec arcu at orci luctus efficitur. In a ante rhoncus, scelerisque purus quis, rhoncus nibh. Nunc eget laoreet diam. Integer a fermentum nibh. Fusce luctus fermentum odio, vitae consequat neque fermentum facilisis. Morbi vehicula nec ligula eu rhoncus. Donec in sapien vitae risus condimentum rutrum vel non nisl. Suspendisse potenti. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut quis sollicitudin ipsum.
+Morbi mattis non purus at pulvinar. Nullam sollicitudin pretium mi id
+interdum. Sed eget neque diam. Nam nec arcu at orci luctus
+efficitur. In a ante rhoncus, scelerisque purus quis, rhoncus
+nibh. Nunc eget laoreet diam. Integer a fermentum nibh. Fusce luctus
+fermentum odio, vitae consequat neque fermentum facilisis. Morbi
+vehicula nec ligula eu rhoncus. Donec in sapien vitae risus
+condimentum rutrum vel non nisl. Suspendisse potenti. Class aptent
+taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+himenaeos. Ut quis sollicitudin ipsum.
 
- \begin{figure}[h]
-   \includegraphics[width=0.5\textwidth]{pluto-small.eps} % for fig.pdf, fig.png or fig.eps
-      \caption{We predict Pluto will look like this.}\label{fig:name}
- \end{figure}
+\begin{figure}[h]
+  \includegraphics[width=0.5\textwidth]{pluto-small.eps} % for fig.pdf, fig.png or fig.eps
+  \caption{We predict Pluto will look like this.}\label{fig:name}
+\end{figure}
 
 % Example references section:
 
@@ -396,28 +465,51 @@ Science and Jundishapur..\ Nature 126, 993-994.
 %
 % Limit to one page of text excluding target list. 
 % 
-% Justify the amount of time requested as well as the specific 
-% instrument(s), configuration, & lunar phase. List objects, coordinates, 
-% magnitude/surface brightness, desired S/N, wavelength coverage & 
-% resolution. Justify any request for Time Critical Observation (TCO) 
-% status. Justify & explain details of any Target of Opportunity (ToO) 
-% request. If you require whole (vs. half) nights, explain why.
+% Justify the amount of time requested as well as the specific
+% instrument(s), configuration, & lunar phase. List objects,
+% coordinates, magnitude/surface brightness, desired S/N, wavelength
+% coverage & resolution. Justify any request for Time Critical
+% Observation (TCO) status. Justify & explain details of any Target of
+% Opportunity (ToO) request. If you require whole (vs. half) nights,
+% explain why.
 
-% If you are absolutely convinced you understand and are obeying the page limit of the 
-% Observing Request Details section, you may uncomment the following flag, which will 
-% remove the instructions for this section from the PDF and buy you a little more space.
-% But, if you do that *and* break the page limit *or* forget to address any relevant 
-% details because you didn't read the instructions, a pox will be cast upon you.
-% And, if you break the page limit and leave the instructions in, then you're just not
-% paying attention.
+% If you are absolutely convinced you understand and are obeying the
+% page limit of the Observing Request Details section, you may
+% uncomment the following flag, which will remove the instructions for
+% this section from the PDF and buy you a little more space.  But, if
+% you do that *and* break the page limit *or* forget to address any
+% relevant details because you didn't read the instructions, a pox
+% will be cast upon you.  And, if you break the page limit and leave
+% the instructions in, then you're just not paying attention.
+
 % \removeObservingRequestInstructions
 
 %%%
 \observingRequest 
 
-Proin in mollis purus. Nullam erat nunc, elementum nec sollicitudin sed, tincidunt eget sapien. Donec in sem eu odio luctus commodo. Integer accumsan risus ut laoreet vulputate. Aenean quis tempor nunc. Suspendisse pretium ornare vestibulum. Aliquam sollicitudin ac est ac sodales. Ut euismod purus vitae ipsum blandit, vitae semper libero ultrices. Etiam posuere vel dolor ac tempor. Curabitur dapibus pulvinar feugiat. Vivamus nec pellentesque ex. In maximus, nisi congue efficitur tempus, arcu risus eleifend orci, eu facilisis mi sapien non velit. Nam pharetra mollis diam, eu egestas ligula sagittis ac. Cras in nisl accumsan, elementum neque id, aliquet ante. Nam tristique purus sit amet tellus pretium, non fermentum enim dignissim. Nulla facilisis cursus auctor.
+Proin in mollis purus. Nullam erat nunc, elementum nec sollicitudin
+sed, tincidunt eget sapien. Donec in sem eu odio luctus
+commodo. Integer accumsan risus ut laoreet vulputate. Aenean quis
+tempor nunc. Suspendisse pretium ornare vestibulum. Aliquam
+sollicitudin ac est ac sodales. Ut euismod purus vitae ipsum blandit,
+vitae semper libero ultrices. Etiam posuere vel dolor ac
+tempor. Curabitur dapibus pulvinar feugiat. Vivamus nec pellentesque
+ex. In maximus, nisi congue efficitur tempus, arcu risus eleifend
+orci, eu facilisis mi sapien non velit. Nam pharetra mollis diam, eu
+egestas ligula sagittis ac. Cras in nisl accumsan, elementum neque id,
+aliquet ante. Nam tristique purus sit amet tellus pretium, non
+fermentum enim dignissim. Nulla facilisis cursus auctor.
 
-Aenean sit amet ornare massa. Integer porta magna aliquet eros tempus, non egestas lorem vehicula. Vivamus sit amet ultrices justo, non euismod nisl. In sed eleifend justo. Sed in purus mi. Sed ac odio imperdiet, tempor elit eget, mollis diam. Phasellus nisl mi, laoreet eu ultrices id, tincidunt quis mauris. In in felis in nisl molestie lacinia vitae eget massa. Nullam tempus lorem velit, eu tincidunt tortor posuere eu. Curabitur malesuada ipsum et maximus lacinia. Donec nibh mauris, lacinia in mi id, vehicula mattis massa. Fusce iaculis in nulla ut luctus. Donec eu eleifend dui. Donec id erat in lacus sodales euismod eu eget augue.
+Aenean sit amet ornare massa. Integer porta magna aliquet eros tempus,
+non egestas lorem vehicula. Vivamus sit amet ultrices justo, non
+euismod nisl. In sed eleifend justo. Sed in purus mi. Sed ac odio
+imperdiet, tempor elit eget, mollis diam. Phasellus nisl mi, laoreet
+eu ultrices id, tincidunt quis mauris. In in felis in nisl molestie
+lacinia vitae eget massa. Nullam tempus lorem velit, eu tincidunt
+tortor posuere eu. Curabitur malesuada ipsum et maximus lacinia. Donec
+nibh mauris, lacinia in mi id, vehicula mattis massa. Fusce iaculis in
+nulla ut luctus. Donec eu eleifend dui. Donec id erat in lacus sodales
+euismod eu eget augue.
 
 \clearpage
 
@@ -432,8 +524,9 @@ Aenean sit amet ornare massa. Integer porta magna aliquet eros tempus, non egest
 &   &   &Integration&  \\
 Object & Coordinates & Mag & Time & Comments \\ [0.5ex] 
 \hline 
-Some star & 15$^h$ 30$^m$, $-4^{\circ}$ & K=7.5 & 1.5 hr & Main program object, etc. \\
-   &   &   &   & \\
+Some star  & 15$^{\rm h}$ 30$^{\rm m}$, $-4^{\circ}$ & 
+K=7.5 & 1.5 hr & Main program object, etc. \\
+Other Star & 16:04:23, -20:12:04 & V=12.2  & 10 min  & Alternate \\
    &   &   &   & \\
    &   &   &   & \\
    &   &   &   & \\  [1ex] 
