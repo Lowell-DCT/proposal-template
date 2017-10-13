@@ -6,7 +6,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lowell-prop}[2017/02/21 Lowell Observatory DCT Observing Proposal]
+\ProvidesClass{lowell-prop}[2017/10/13 Lowell Observatory DCT Observing Proposal]
 \LoadClass[11pt]{article}
 
 % Page design/layout macros.  Page sizes are at the end of the file.
@@ -19,8 +19,8 @@
 
 \def\prop@head{Lowell Observatory\\\@tele\ Observing Proposal}
 
-\def\revtex@ver{1.5.1}		% Version number of this file.
-\def\revtex@date{2017-02-21}	% Revision date.
+\def\revtex@ver{1.5.2}		% Version number of this file.
+\def\revtex@date{2017-10-13}	% Revision date.
 
 \def\revtex@pageid{\xdef\@thefnmark{\null}
    {\footnotesize Lowell Observatory DCT proposal\space
@@ -63,16 +63,16 @@
 \newcommand{\HMDIallCoI}{\hiddenMetaDataItem{CoIs}{\HMDIallCoIinfo}}
 
 % if need to edit these observing run metadata lines, delete all but first, edit and then copy-and-paste and do a search-and-replace to get back to having obsA,obsB,obsC...I
-\newcommand{\HMDIobsA}{\@ifundefined{obsA@inst}{}{\hiddenMetaDataItem{RUNobsA}{\hiddenMetaDataItem{INSTRUMENT}{\obsA@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsA@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsA@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsA@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsA@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsA@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsA@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsA@wholenights}}}}
-\newcommand{\HMDIobsB}{\@ifundefined{obsB@inst}{}{\hiddenMetaDataItem{RUNobsB}{\hiddenMetaDataItem{INSTRUMENT}{\obsB@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsB@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsB@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsB@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsB@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsB@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsB@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsB@wholenights}}}}
-\newcommand{\HMDIobsC}{\@ifundefined{obsC@inst}{}{\hiddenMetaDataItem{RUNobsC}{\hiddenMetaDataItem{INSTRUMENT}{\obsC@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsC@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsC@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsC@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsC@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsC@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsC@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsC@wholenights}}}}
-\newcommand{\HMDIobsD}{\@ifundefined{obsD@inst}{}{\hiddenMetaDataItem{RUNobsD}{\hiddenMetaDataItem{INSTRUMENT}{\obsD@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsD@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsD@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsD@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsD@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsD@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsD@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsD@wholenights}}}}
-\newcommand{\HMDIobsE}{\@ifundefined{obsE@inst}{}{\hiddenMetaDataItem{RUNobsE}{\hiddenMetaDataItem{INSTRUMENT}{\obsE@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsE@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsE@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsE@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsE@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsE@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsE@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsE@wholenights}}}}
-\newcommand{\HMDIobsF}{\@ifundefined{obsF@inst}{}{\hiddenMetaDataItem{RUNobsF}{\hiddenMetaDataItem{INSTRUMENT}{\obsF@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsF@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsF@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsF@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsF@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsF@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsF@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsF@wholenights}}}}
-\newcommand{\HMDIobsG}{\@ifundefined{obsG@inst}{}{\hiddenMetaDataItem{RUNobsG}{\hiddenMetaDataItem{INSTRUMENT}{\obsG@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsG@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsG@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsG@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsG@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsG@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsG@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsG@wholenights}}}}
-\newcommand{\HMDIobsH}{\@ifundefined{obsH@inst}{}{\hiddenMetaDataItem{RUNobsH}{\hiddenMetaDataItem{INSTRUMENT}{\obsH@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsH@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsH@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsH@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsH@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsH@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsH@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsH@wholenights}}}}
-\newcommand{\HMDIobsI}{\@ifundefined{obsI@inst}{}{\hiddenMetaDataItem{RUNobsI}{\hiddenMetaDataItem{INSTRUMENT}{\obsI@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsI@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsI@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsI@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsI@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsI@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsI@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsI@wholenights}}}}
-\newcommand{\HMDIobsJ}{\@ifundefined{obsJ@inst}{}{\hiddenMetaDataItem{RUNobsJ}{\hiddenMetaDataItem{INSTRUMENT}{\obsJ@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsJ@remobs}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsJ@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsJ@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsJ@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsJ@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsJ@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsJ@wholenights}}}}
+\newcommand{\HMDIobsA}{\@ifundefined{obsA@inst}{}{\hiddenMetaDataItem{RUNobsA}{\hiddenMetaDataItem{INSTRUMENT}{\obsA@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsA@remobs}\hiddenMetaDataItem{TOTALTIME}{\obsA@ttrequest}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsA@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsA@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsA@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsA@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsA@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsA@wholenights}}}}
+\newcommand{\HMDIobsB}{\@ifundefined{obsB@inst}{}{\hiddenMetaDataItem{RUNobsB}{\hiddenMetaDataItem{INSTRUMENT}{\obsB@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsB@remobs}\hiddenMetaDataItem{TOTALTIME}{\obsB@ttrequest}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsB@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsB@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsB@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsB@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsB@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsB@wholenights}}}}
+\newcommand{\HMDIobsC}{\@ifundefined{obsC@inst}{}{\hiddenMetaDataItem{RUNobsC}{\hiddenMetaDataItem{INSTRUMENT}{\obsC@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsC@remobs}\hiddenMetaDataItem{TOTALTIME}{\obsC@ttrequest}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsC@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsC@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsC@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsC@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsC@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsC@wholenights}}}}
+\newcommand{\HMDIobsD}{\@ifundefined{obsD@inst}{}{\hiddenMetaDataItem{RUNobsD}{\hiddenMetaDataItem{INSTRUMENT}{\obsD@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsD@remobs}\hiddenMetaDataItem{TOTALTIME}{\obsD@ttrequest}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsD@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsD@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsD@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsD@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsD@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsD@wholenights}}}}
+\newcommand{\HMDIobsE}{\@ifundefined{obsE@inst}{}{\hiddenMetaDataItem{RUNobsE}{\hiddenMetaDataItem{INSTRUMENT}{\obsE@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsE@remobs}\hiddenMetaDataItem{TOTALTIME}{\obsE@ttrequest}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsE@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsE@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsE@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsE@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsE@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsE@wholenights}}}}
+\newcommand{\HMDIobsF}{\@ifundefined{obsF@inst}{}{\hiddenMetaDataItem{RUNobsF}{\hiddenMetaDataItem{INSTRUMENT}{\obsF@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsF@remobs}\hiddenMetaDataItem{TOTALTIME}{\obsF@ttrequest}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsF@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsF@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsF@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsF@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsF@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsF@wholenights}}}}
+\newcommand{\HMDIobsG}{\@ifundefined{obsG@inst}{}{\hiddenMetaDataItem{RUNobsG}{\hiddenMetaDataItem{INSTRUMENT}{\obsG@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsG@remobs}\hiddenMetaDataItem{TOTALTIME}{\obsG@ttrequest}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsG@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsG@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsG@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsG@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsG@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsG@wholenights}}}}
+\newcommand{\HMDIobsH}{\@ifundefined{obsH@inst}{}{\hiddenMetaDataItem{RUNobsH}{\hiddenMetaDataItem{INSTRUMENT}{\obsH@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsH@remobs}\hiddenMetaDataItem{TOTALTIME}{\obsH@ttrequest}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsH@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsH@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsH@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsH@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsH@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsH@wholenights}}}}
+\newcommand{\HMDIobsI}{\@ifundefined{obsI@inst}{}{\hiddenMetaDataItem{RUNobsI}{\hiddenMetaDataItem{INSTRUMENT}{\obsI@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsI@remobs}\hiddenMetaDataItem{TOTALTIME}{\obsI@ttrequest}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsI@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsI@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsI@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsI@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsI@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsI@wholenights}}}}
+\newcommand{\HMDIobsJ}{\@ifundefined{obsJ@inst}{}{\hiddenMetaDataItem{RUNobsJ}{\hiddenMetaDataItem{INSTRUMENT}{\obsJ@inst}\hiddenMetaDataItem{REMOTEREQUEST}{\obsJ@remobs}\hiddenMetaDataItem{TOTALTIME}{\obsJ@ttrequest}\hiddenMetaDataItem{NUMFIRSTHALFNIGHTS}{\obsJ@numfirsthalfnights}\hiddenMetaDataItem{NUMSECONDHALFNIGHTS}{\obsJ@numsecondhalfnights}\hiddenMetaDataItem{MOONBRIGHTNESS}{\obsJ@moonbrightness}\hiddenMetaDataItem{OPTIMALDATES}{\obsJ@optdates}\hiddenMetaDataItem{ACCEPTABLEDATES}{\obsJ@accdates}\hiddenMetaDataItem{WHOLENIGHTS}{\obsJ@wholenights}}}}
 
 \newcommand{\HMDIallObsRuns}{\HMDIobsA\HMDIobsB\HMDIobsC\HMDIobsD\HMDIobsE\HMDIobsF\HMDIobsG\HMDIobsH\HMDIobsI\HMDIobsJ}
 
@@ -228,7 +228,7 @@
 
 \newcounter{obsrun}
 \newenvironment{obsrun}{\stepcounter{obsrun}}{}
-\newenvironment{ToOrun}{\stepcounter{obsrun}}{\numfirsthalfnights{-}\numsecondhalfnights{-}\remoteobserving{-}\wholenightsrequired{-}}
+\newenvironment{ToOrun}{\stepcounter{obsrun}}{\numfirsthalfnights{-}\numsecondhalfnights{-}\remoteobserving{-}\nightunitrequired{-}\totaltimerequest{-}}
 \def\printCoverPageObsRuns{\par\prt@obsruns\par}
 
 % Observing run parameters to be specified by the investigators.
@@ -244,13 +244,14 @@
 
 \def\telescope#1{\global\@namedef{obs\@Alph{\c@obsrun}@telid}{#1}}
 \def\instrument#1{\global\@namedef{obs\@Alph{\c@obsrun}@inst}{#1}}
+\def\totaltimerequest#1{\global\@namedef{obs\@Alph{\c@obsrun}@ttrequest}{#1}}
 \def\numfirsthalfnights#1{\global\@namedef{obs\@Alph{\c@obsrun}@numfirsthalfnights}{#1}}
 \def\numsecondhalfnights#1{\global\@namedef{obs\@Alph{\c@obsrun}@numsecondhalfnights}{#1}}
 \def\moonbrightness#1{\global\@namedef{obs\@Alph{\c@obsrun}@moonbrightness}{#1}}
 \def\optimaldates#1{\global\@namedef{obs\@Alph{\c@obsrun}@optdates}{#1}}
 \def\acceptabledates#1{\global\@namedef{obs\@Alph{\c@obsrun}@accdates}{#1}}
 \def\remoteobserving#1{\global\@namedef{obs\@Alph{\c@obsrun}@remobs}{#1}}
-\def\wholenightsrequired#1{\global\@namedef{obs\@Alph{\c@obsrun}@wholenights}{#1}}
+\def\nightunitrequired#1{\global\@namedef{obs\@Alph{\c@obsrun}@wholenights}{#1}}
 
 % following is a hack to get ToO info in right place in table
 \def\ToOtype#1{\global\@namedef{obs\@Alph{\c@obsrun}@optdates}{#1 ToO}}
@@ -263,17 +264,18 @@
 
 \newcommand{\prt@obsruns}{\begin{center}{\bf\obsrun@head}\\[1ex]
     \begin{tabular*}{\textwidth}
-        {|c|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|}
+        {|c|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|}
     \multicolumn{1}{c}{Run} &
     \multicolumn{2}{l}{Instrument, detectors, gratings, filters,
     camera optics, etc.} &
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Total}{Time}}\vspace{.5ex} &
     \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Remote}{Requested}}\vspace{.5ex}\\
     \hline
-    1 & \obsA@inst && \obsA@remobs \\
+    1 & \obsA@inst && \obsA@ttrequest & \obsA@remobs \\
     \hline
-    \@ifundefined{obsB@inst}{}{2 & \obsB@inst && \obsB@remobs \\
+    \@ifundefined{obsB@inst}{}{2 & \obsB@inst && \obsB@ttrequest & \obsB@remobs \\
     \hline}
-    \@ifundefined{obsC@inst}{}{3 & \obsC@inst && \obsC@remobs \\
+    \@ifundefined{obsC@inst}{}{3 & \obsC@inst && \obsC@ttrequest & \obsC@remobs \\
     \hline}
     \end{tabular*}\\
     \vspace{2ex}
@@ -284,7 +286,8 @@
     \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Max Moon}{Brightness}} &
     \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Optimal Dates} &
     \multicolumn{2}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Acceptable} &
-    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Whole Nights}{Required}}\vspace{.5ex}\\
+%SEL    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Whole Nights}{Required}}\vspace{.5ex}\\
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Night Unit}{Required}}\vspace{.5ex}\\
     \hline
     1 & \obsA@numfirsthalfnights &\obsA@numsecondhalfnights & \obsA@moonbrightness &
         \obsA@optdates & \obsA@accdates&& \obsA@wholenights\\
