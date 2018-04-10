@@ -16,7 +16,7 @@ be generated.
 
 Developed in early 2016 by Henry Roe based on similar templates in use
 at KPNO/NOAO/CTIO.
-Modified later by Stephen Levine.
+Modified start in mid 2017 by Stephen Levine.
 
 2016-07-07: Updated to shorten proposals and lessen workload on
 	    proposers & reviewers. (hroe)
@@ -72,5 +72,12 @@ Changes include:
 2017-10-13 (1.5.2): Updates (sel)
 - for switch to semester scheduling, with the option of quarter night
   quantum.
+
+2018-01-06 (1.5.3): Update and bug fix (sel)
+- Modified the overflow macros to add an indicator line on page 1 if
+  the number of runs caused the table to overflow onto page 2.
+- Fixed the overflow table format so that it is once again consistent
+  with the primary table format.
+- Checked consistency of instructions between cls and tex template.
 
 Questions or comments:  email Stephen Levine (sel@lowell.edu).

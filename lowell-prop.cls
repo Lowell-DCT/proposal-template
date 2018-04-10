@@ -6,7 +6,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lowell-prop}[2017/10/13 Lowell Observatory DCT Observing Proposal]
+\ProvidesClass{lowell-prop}[2018/01/06 Lowell Observatory DCT Observing Proposal]
 \LoadClass[11pt]{article}
 
 % Page design/layout macros.  Page sizes are at the end of the file.
@@ -19,8 +19,8 @@
 
 \def\prop@head{Lowell Observatory\\\@tele\ Observing Proposal}
 
-\def\revtex@ver{1.5.2}		% Version number of this file.
-\def\revtex@date{2017-10-13}	% Revision date.
+\def\revtex@ver{1.5.3}		% Version number of this file.
+\def\revtex@date{2018-01-06}	% Revision date.
 
 \def\revtex@pageid{\xdef\@thefnmark{\null}
    {\footnotesize Lowell Observatory DCT proposal\space
@@ -170,6 +170,14 @@
   \global\let\HMDIallCoIinfo\foo
   }
     
+% Construct overflow page
+%  check if number of CoIs exceeds first page limit, if yes need new page
+%  check if run 4 exists, if yes need new page
+%    printCoverPageObsRuns also tests obsDinst to see if needs a note
+%    about rollover to page 2.
+%  if yes, generate \newpage
+%  insert full CoI list
+%  insert overflow tables
 \newenvironment{OverflowFromCoverPage}{
     \ifnum\c@numAuthors>\@maxNumAuthors
         \def\needoverflowpage{True}
@@ -229,7 +237,8 @@
 \newcounter{obsrun}
 \newenvironment{obsrun}{\stepcounter{obsrun}}{}
 \newenvironment{ToOrun}{\stepcounter{obsrun}}{\numfirsthalfnights{-}\numsecondhalfnights{-}\remoteobserving{-}\nightunitrequired{-}\totaltimerequest{-}}
-\def\printCoverPageObsRuns{\par\prt@obsruns\par}
+\def\printCoverPageObsRuns{\par\prt@obsruns\par
+  \ifnum\c@obsrun>3{\hfill {\bf Summary information continued on page 2.}\hfill\break\par}\fi}
 
 % Observing run parameters to be specified by the investigators.
 %
@@ -279,6 +288,7 @@
     \hline}
     \end{tabular*}\\
     \vspace{2ex}
+
     \begin{tabular*}{\textwidth}{|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|l|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|}
     \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Run} &
     \multicolumn{1}{c}{\#1$^\mathrm{st} \frac{1}{2}$} &
@@ -286,7 +296,7 @@
     \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Max Moon}{Brightness}} &
     \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Optimal Dates} &
     \multicolumn{2}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Acceptable} &
-%SEL    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Whole Nights}{Required}}\vspace{.5ex}\\
+%SEL-1.5.2    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Whole Nights}{Required}}\vspace{.5ex}\\
     \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Night Unit}{Required}}\vspace{.5ex}\\
     \hline
     1 & \obsA@numfirsthalfnights &\obsA@numsecondhalfnights & \obsA@moonbrightness &
@@ -303,25 +313,26 @@
 
 \newcommand{\prt@overflowobsruns}{\begin{center}{\bf\obsrun@head}\\[1ex]
     \begin{tabular*}{\textwidth}
-        {|c|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|}
+        {|c|l@{\extracolsep{\fill}}c|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|@{\extracolsep{0pt}}c@{\extracolsep{0pt}}|}
     \multicolumn{1}{c}{Run} &
     \multicolumn{2}{l}{Instrument, detectors, gratings, filters,
     camera optics, etc.} &
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Total}{Time}}\vspace{.5ex} &
     \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{ \stacktablehdr{Remote}{Requested}}\vspace{.5ex}\\
     \hline
-    4 & \obsD@inst && \obsD@remobs \\
+    4 & \obsD@inst && \obsD@ttrequest & \obsD@remobs \\
     \hline
-    \@ifundefined{obsE@inst}{}{5 & \obsE@inst && \obsE@remobs \\
+    \@ifundefined{obsE@inst}{}{5 & \obsE@inst && \obsE@ttrequest & \obsE@remobs \\
     \hline}
-    \@ifundefined{obsF@inst}{}{6 & \obsF@inst && \obsF@remobs \\
+    \@ifundefined{obsF@inst}{}{6 & \obsF@inst && \obsF@ttrequest & \obsF@remobs \\
     \hline}
-    \@ifundefined{obsG@inst}{}{7 & \obsG@inst && \obsG@remobs \\
+    \@ifundefined{obsG@inst}{}{7 & \obsG@inst && \obsG@ttrequest & \obsG@remobs \\
     \hline}
-    \@ifundefined{obsH@inst}{}{8 & \obsH@inst && \obsH@remobs \\
+    \@ifundefined{obsH@inst}{}{8 & \obsH@inst && \obsH@ttrequest & \obsH@remobs \\
     \hline}
-    \@ifundefined{obsI@inst}{}{9 & \obsI@inst && \obsI@remobs \\
+    \@ifundefined{obsI@inst}{}{9 & \obsI@inst && \obsI@ttrequest & \obsI@remobs \\
     \hline}
-    \@ifundefined{obsJ@inst}{}{10 & \obsJ@inst && \obsJ@remobs \\
+    \@ifundefined{obsJ@inst}{}{10 & \obsJ@inst && \obsJ@ttrequest & \obsJ@remobs \\
     \hline}
     \end{tabular*}\\
     \vspace{2ex}
@@ -333,7 +344,8 @@
     \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Max Moon}{Brightness}} &
     \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Optimal Dates} &
     \multicolumn{2}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{Acceptable} &
-    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Whole Nights}{Required}}\vspace{.5ex}\\
+%SEL-1.5.3    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Whole Nights}{Required}}\vspace{.5ex}\\
+    \multicolumn{1}{@{\extracolsep{0pt}}c@{\extracolsep{0pt}}}{\stacktablehdr{Night Unit}{Required}}\vspace{.5ex}\\
     \hline
     4 & \obsD@numfirsthalfnights &\obsD@numsecondhalfnights & \obsD@moonbrightness &
         \obsD@optdates & \obsD@accdates&& \obsD@wholenights\\
@@ -382,10 +394,27 @@
     {7pt plus 4pt minus 2pt}{-1em}{\normalsize\bf}}
 \def\subsection{\@startsection{subsection}{2}{\z@}
     {-3.25ex plus -1ex minus -.2ex}{1.5ex plus .2ex}{\normalsize\bf}}
-\def\justif@head{{\instruct@font  Lowell proposals limited to one page of text and figure(s); References may appear on a second page. You may use your 1 page of Science Justification as you wish, but do not alter default line spacing, margins, font size. Most proposals should consist of no more than $\sim$300 words of text and a figure. Figures should be legible and not too small. Write for a general scientific audience. Non-Lowell proposers should check with their home institution regarding page limits.
-\par}}
-\def\feas@head{{\instruct@font Limit to one page of text excluding target list. List objects, coordinates, magnitude/surface brightness, desired S/N, wavelength coverage \& resolution. Justify the amount of time requested as well as the specific instrument(s), configuration, \& Dark/Gray/Bright requirements. Justify any request for Time Critical Observation (TCO) status.  Justify \& explain details of any Target of Opportunity (ToO) request. If you require whole (vs.\ half) nights, explain why. Explain any other details of your observing request not fully captured on the cover page.
-    \par}}
+
+\def\justif@head{{\instruct@font Lowell proposals are limited to one
+    page of text and figure(s); References may appear on a second
+    page. You may use your 1 page of Science Justification as you
+    wish, but do not alter default line spacing, margins, font
+    size. Most proposals should consist of no more than $\sim 300$
+    words of text and a figure. Figures should be legible and not too
+    small. Write for a general scientific audience. Non-Lowell
+    proposers should check with their home institution regarding page
+    limits.  \par}}
+
+\def\feas@head{{\instruct@font Limit to one page of text only,
+    excluding target list. List objects, coordinates,
+    magnitude/surface brightness, desired S/N, wavelength coverage \&
+    resolution. Justify the amount of time requested as well as the
+    specific instrument(s), configuration, \& Dark/Gray/Bright
+    requirements. Justify any request for Time Critical Observation
+    (TCO) status.  Justify \& explain details of any Target of
+    Opportunity (ToO) request. If you require whole or quarter
+    (vs.\ half) nights, explain why. Explain any other details of your
+    observing request not fully captured on the cover page.  \par}}
 
 \def\removeScienceJustificationInstructions{\def\justif@head{{\instruct@font \hspace{0.1in} \par}}}
 \def\removeObservingRequestInstructions{\def\feas@head{{\instruct@font \hspace{0.1in} \par}}}

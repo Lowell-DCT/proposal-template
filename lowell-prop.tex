@@ -1,5 +1,5 @@
 % lowell-prop.tex - Lowell Observatory DCT proposal template 
-%   Last update 2017-10-13 by sel@lowell.edu
+%   Last update 2018-01-06 by sel@lowell.edu - corresponds to v.1.5.3
 
 % General Instructions:
 %  
@@ -261,9 +261,35 @@
 \nightunitrequired{H}
 \end{obsrun}
 
+\begin{obsrun}
+\telescope{DCT}
+\instrument{LMI: UBVRI}
+\totaltimerequest{2.5}
+\numfirsthalfnights{3}
+\numsecondhalfnights{2}
+\moonbrightness{D}
+\optimaldates{Feb -- Mar}
+\acceptabledates{Jan -- Mar, May-Jun}
+\remoteobserving{N}
+\nightunitrequired{H}
+\end{obsrun}
+
+\begin{obsrun}
+\telescope{DCT}
+\instrument{LMI: UBVRI}
+\totaltimerequest{2.5}
+\numfirsthalfnights{3}
+\numsecondhalfnights{2}
+\moonbrightness{D}
+\optimaldates{Feb -- Mar}
+\acceptabledates{Jan -- Mar, May-Jun}
+\remoteobserving{N}
+\nightunitrequired{H}
+\end{obsrun}
+
 \begin{ToOrun}
 \telescope{DCT}
-\instrument{LMI}
+\instrument{DeVeny}
 \moonbrightness{any}  % Typically "any" for most ToO programs, but can also be D,G,B following above codes
 \ToOtype{Rapid}   %  "Rapid" (10 minute response time) or "Slow" (30 minute response time)
 \totalhours{5.0}
@@ -334,7 +360,7 @@ more details in the Observing Request Details section.}
 
 % DON'T EDIT OR COMMENT OUT THE FOLLOWING 2 LINES
 % containing \EndOfPrimaryCoverPage{} and \OverflowFromCoverPage{}
-% This line will create an additional page if needed to list more CoIs
+% These lines will create an additional page if needed to list more CoIs
 % or more observing runs
 \EndOfPrimaryCoverPage{}
 \OverflowFromCoverPage{}
@@ -465,13 +491,14 @@ Science and Jundishapur..\ Nature 126, 993-994.
 %
 % Limit to one page of text excluding target list. 
 % 
-% Justify the amount of time requested as well as the specific
-% instrument(s), configuration, & lunar phase. List objects,
-% coordinates, magnitude/surface brightness, desired S/N, wavelength
-% coverage & resolution. Justify any request for Time Critical
-% Observation (TCO) status. Justify & explain details of any Target of
-% Opportunity (ToO) request. If you require whole (vs. half) nights,
-% explain why.
+% List objects, coordinates, magnitude/surface brightness, desired
+% S/N, wavelength coverage \& resolution. Justify the amount of time
+% requested as well as the specific instrument(s), configuration, \&
+% Dark/Gray/Bright requirements. Justify any request for Time Critical
+% Observation (TCO) status.  Justify \& explain details of any Target
+% of Opportunity (ToO) request. If you require whole or quarter
+% (vs.\ half) nights, explain why. Explain any other details of your
+% observing request not fully captured on the cover page.
 
 % If you are absolutely convinced you understand and are obeying the
 % page limit of the Observing Request Details section, you may
@@ -521,8 +548,8 @@ euismod eu eget augue.
 {\bf Target List} \\[2em]
 \begin{tabular}{l l l l l} 
 \hline\hline 
-&   &   &Integration&  \\
-Object & Coordinates & Mag & Time & Comments \\ [0.5ex] 
+       & Coordinates &     & Integration &  \\
+Object &  (J2000.0)  & Mag & Time        & Comments \\ [0.5ex] 
 \hline 
 Some star  & 15$^{\rm h}$ 30$^{\rm m}$, $-4^{\circ}$ & 
 K=7.5 & 1.5 hr & Main program object, etc. \\
